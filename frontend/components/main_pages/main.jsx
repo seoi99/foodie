@@ -21,11 +21,11 @@ class MainPage extends React.Component {
             <Link to='/reviews'>Talk</Link>
           </div>
           <div className="signup-links">
-            <div className="user-icon"></div>
             <button onClick={this.handleClick}> Logout </button>
+            <div className="user-icon"></div>
           </div>
         </nav>
-        <h1>Foodie</h1>
+        <h1><Link to="/">Foodie</Link></h1>
       </div>);
     }
     else {
@@ -42,7 +42,7 @@ class MainPage extends React.Component {
               <Link to='/signup'>Sign Up</Link>
             </div>
           </nav>
-          <h1>Foodie</h1>
+          <h1><Link to="/">Foodie</Link></h1>
 
         </div>
       );

@@ -44,22 +44,32 @@ nav {
   width: 996px;
   margin: 0 auto;
 }
-a {
+.nav-links a, .signup-links a, .signup-links button {
+  box-sizing: border-box;
+  height: 36px;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 10px 10px;
   color: white;
   font-weight: 700;
+  text-align: center;
+  align-items: center;
   margin-top: 36px;
   margin-left: 10px;
+
 }
 
-a:hover {
+.signup-links button {
+  color: black;
+}
+.signup-links a:hover, .nav-links a:hover  {
   border-bottom: 2px solid white;
   padding-bottom: 3px;
 }
+.main-image a:active {
+  color: grey;
+}
 
-.signup-links a {
-  padding: 9px 12px 10px
+.signup-links a{
 }
 .signup-links a:last-child {
   text-decoration: none;
@@ -67,7 +77,6 @@ a:hover {
   border: 2px solid #fff;
   border-radius: 4px;
   padding: 7px 24px 8px;
-
 }
 
 .signup-links a:last-child:hover {
@@ -87,15 +96,22 @@ a:hover {
 }
 
 .user-icon {
-  content: "\f007";
-  font-weight: 900;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 4px;
+  margin-top: 30px;
+  background-image: url("https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png");
 }
 
-.main-image h1 {
+.main-image h1, h1 a {
   margin-top: 88px;
   text-align: center;
   font-size: 42px;
-  text-shadow: 2px 2px 10px #f2f2f2
+  text-shadow: 2px 2px 5px #f2f2f2, -2px -2px 5px #f2f2f2;
+  text-decoration: none;
+  color: black;
 }
 
 .main-image h1::after {
@@ -104,25 +120,38 @@ a:hover {
   font-size: 47px;
   color: red;
   padding-left: 2px;
-
 }
 
-/* SignUp Form CSS */
+
+
+/* SignUp Form & Login Form` CSS */
 .header {
   background-color: #d32323;
   color: #000;
-  font-size: 30px;
+  font-size: 24px;
   text-align: center;
   padding: 12px 0;
-  text-shadow: 2px 2px 10px #f2f2f2
+  text-shadow: -1px -1px 1px #f2f2f2,  1px 1px 1px #f2f2f2;
 }
 
-.header::after {
+.header a {
+  color: black;
+  text-decoration: none;
+}
+
+.header a::after {
   content: "\f1e9";
   font-family: FontAwesome;
   font-size: 36px;
   color: red;
   padding-left: 2px;
+}
+
+.error {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 .form-img{
@@ -131,48 +160,100 @@ a:hover {
 }
 
 
-.login-form-box {
+.login-form {
   width: 467px;
   height: 677px;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px 50px;
 }
 
-input {
-  font-size: 15px;
-}
-
-.login-form-box input {
-  border-radius: 4px;
-}
-
-.login-form-box .signin-input-1-2 {
-  display: flex;
-  justify-content: space-between;
-}
-
-.login-form-box .signin-input-1-2 input {
+.login-form > * {
   box-sizing: border-box;
-  width: 147px;
+  width: 300px;
+  margin-bottom: 1px;
+  height: 30px;
   margin-bottom: 9px;
 }
 
-
-.login-form-box .signin-input-1 {
-  box-sizing: border-box;
-  width: 300px;
-  margin-bottom: 18px;
-  padding: 5px;
+input, button {
+  font-size: 15px;
+  border-radius: 4px;
+  border: 1px solid grey;
 }
 
-.login-form-box h3 {
+.login-form .signin-input-1-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-form .signin-input-1-2 input {
+  box-sizing: border-box;
+  width: 49%;
+
+}
+
+.birthday {
+  text-align: left;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.birthday {
+  height: 70px;
+}
+
+.input-1-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-form .input-1-3 select {
+  box-sizing: border-box;
+  width: 33%;
+  height: 28px;
+  font-size: inherit;
+  background-color: white;
+}
+
+form h3 {
   color: #d32323;
   font-size: 22px;
-  margin-bottom: 1px;
 }
 
-.login-form-box p {
+.login-form h3 {
+  height: 10px;
+}
+.login-form p {
+  font-weight: bold;
+  /* height: 1px; */
+}
+
+.login-form p a {
+  font-weight: bold;
+  padding-left: 3px;
+  text-decoration: none;
+}
+input[type=submit]  {
+  box-sizing: border-box;
+  background-color: #d90007;
+  border: 1px solid #8d0005;
+  height: 48px;
+  color: white;
+  font-weight: bold;
+}
+
+.login-form button {
+  box-sizing: border-box;
+  background-color: #0700d9;
+  border: 1px solid #0000dd;
+  height: 48px;
+  color: white;
   font-weight: bold;
 }
 
@@ -183,21 +264,21 @@ img {
   margin-top: 15%;
 }
 
-.birthday {
-  text-align: left;
-  flex-wrap: wrap;
-}
 
-.birthday p {
-  width: 300px;
-}
-
-.birthday p span {
-  font-weight: 200;
+.login-form .swap-signup {
+  text-align: right;
+  font-weight: 400;
   color: grey;
+  font-size: 12px;
 }
 
-.birthday select {
-  display: flex;
-  flex-direction: row;
+
+.login-form p a {
+  color: #0073bb;
+  text-decoration: none;
+  margin-left: 1px;
+}
+
+.login-form p a:hover {
+  text-decoration: underline;
 }
