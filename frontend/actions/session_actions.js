@@ -21,18 +21,20 @@ export const receiveErrors = (errors) => ({
 
 export const login = (user) => {
   return (dispatch) => {
-    SessionApiUtil.login(user).then((currentUser) => {
-
-       dispatch(receiveCurrentUser(currentUser));
-    }, (response)=> {  });
-  };
-};
+    SessionApiUtil.login(user).then((user) => {
+      dispatch(receiveCurrentUser(user))
+    },(error) => {
+      dispatch(receiveErrors(error.responseJSON))
+    })
+  }
+}
 
 export const signup = (currentUser) => {
-
   return (dispatch) => {
-    return SessionApiUtil.signup(currentUser).then((currentUser) => {
-      return dispatch(receiveCurrentUser(currentUser));
+     SessionApiUtil.signup(currentUser).then((currentUser) => {
+       dispatch(receiveCurrentUser(currentUser));
+    }, (error) => {
+      dispatch(receiveErrors(error.responseJSON))
     });
   };
 };

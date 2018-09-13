@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     session: { currentUserId: window.currentUser.id }
   };
   store = configureStore(preloadedState);
-  delete window.currentUser;
 } else {
   store = configureStore();
 }
@@ -22,5 +21,4 @@ document.addEventListener('DOMContentLoaded', ()=> {
   ReactDOM.render(<Root store={store}/>, root);
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = SessionApiUtil.login;
   });

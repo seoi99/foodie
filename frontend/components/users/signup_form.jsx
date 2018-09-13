@@ -28,6 +28,7 @@ class SignupForm extends React.Component {
     });
   }
   renderErrors() {
+    debugger
     return(
       <ul>
         {this.props.errors.map((error, i) => (
@@ -40,28 +41,31 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    debugger
   return (
+  <div>
+    <div className="header">Foodie</div>
+    <div className="form-img">
       <form onSubmit={this.handleSubmit} className="login-form-box">
         <br/>
         <div className="login-form">
           <br/>
-          <h3>Sign Up</h3>
-            <br/>
+          <h3>Sign Up for Foodie</h3>
+            <p> Connect with great local businesses</p>
             {this.renderErrors()}
+          <div className="signin-input-1-2">
             <input type="text"
               value={this.state.firstname}
               onChange={this.update('firstname')}
-              className="signin-input-1-2"
               placeholder ="First Name"
             />
 
             <input type="text"
               value={this.state.lastname}
               onChange={this.update('lastname')}
-              className="signin-input-1-2"
               placeholder ="Last Name"
             />
-          <br/>
+          </div>
             <input type="text"
               value={this.state.username}
               onChange={this.update('username')}
@@ -83,8 +87,10 @@ class SignupForm extends React.Component {
                 placeholder ="ZIP code"
               />
             <br/>
-
-              <select name="month" onChange={this.update('month')} value={this.state.month}>
+              <div className="birthday">
+                <p>Birthday <span>optional</span></p>
+                <div className="input-1-3">
+                <select name="month" onChange={this.update('month')} value={this.state.month}>
                 <option value="">Month</option>
                 <option value="Jan">Jan</option>
                 <option value="Feb">Feb</option>
@@ -150,10 +156,16 @@ class SignupForm extends React.Component {
                   <option value="2000">2000</option>
                   <option value="2001">2001</option>
                 </select>
-
-          <input className="session-submit" type="submit" />
+                </div>
+              </div>
+          <input className="session-submit" type="submit" value="Sign Up" />
         </div>
       </form>
+      <div>
+        <img src="https://images.pexels.com/photos/940302/pexels-photo-940302.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+      </div>
+  </div>
+</div>
   );
 }
 }

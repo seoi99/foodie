@@ -26,11 +26,23 @@ class LoginForm extends React.Component {
       });
     };
   }
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return(
     <div>
-      Login
+      <div className="header">Foodie</div>
+      {this.renderErrors()}
       <form onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.username} onChange={this.update('username')}></input>
         <input type="text" value={this.state.password} onChange={this.update('password')}></input>

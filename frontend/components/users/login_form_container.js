@@ -5,13 +5,13 @@ import SessionForm from './login_form';
 const mapStateToProps = (state, ownProps) => {
 
   return {
-    errors: state.errors,
+    errors: state.errors.session,
     formType: 'login',
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  // 
+  debugger
   return {
     login: (user) => {
       return dispatch(login(
