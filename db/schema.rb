@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 2018_09_11_175225) do
     t.string "session_token"
     t.string "firstname"
     t.string "lastname"
-    t.string "zipcode"
-    t.string "date"
+    t.integer "zipcode"
+    t.integer "date"
     t.string "month"
-    t.string "year"
+    t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
