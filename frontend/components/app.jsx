@@ -10,6 +10,7 @@ import { AuthRoute } from '../util/route_util';
 import LoginFormContainer from './users/login_form_container';
 import SignupFormContainer from './users/signup_form_container';
 import MainComponent from './main_pages/main_container';
+import BusinessIndexContainer from './businesses/business_index_container';
 
 const App = () => {
   return(
@@ -19,6 +20,7 @@ const App = () => {
 
       <Route exact path="/" component={MainComponent} />
       <Route exact path="/users" component={MainComponent} />
+      <Route exact path="/businesses" component={BusinessIndexContainer} />
     </div>
 
   )

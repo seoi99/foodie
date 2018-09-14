@@ -52,6 +52,8 @@ class MainPage extends React.Component {
           </div>
         </nav>
         <h1><Link to="/">Foodie</Link></h1>
+        <Link to="/businesses">BusinessPage</Link>
+
       </div>);
     }
     else {
@@ -69,6 +71,8 @@ class MainPage extends React.Component {
             </div>
           </nav>
           <h1><Link to="/">Foodie</Link></h1>
+            <Link to="/businesses">BusinessPage</Link>
+
 
         </div>
       );
