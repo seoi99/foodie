@@ -1,0 +1,290 @@
+.header-all {
+  display: flex;
+  flex-direction: row;
+  /* box-sizing: border-box; */
+  justify-content: center;
+  background-color: #d32323;
+  color: #000;
+  height: 64px;
+}
+a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: black;
+}
+.header-all > * {
+  padding: 5px 10px;
+  margin:auto 0;
+}
+
+.header-all > a {
+  font-family: 'Concert One';
+  font-size: 25px;
+  text-align: center;
+  text-shadow:
+  -1.4px -1.4px 0 white,
+   1.4px -1.4px 0 white,
+   -1.4px 1.4px 0 white,
+   1.4px 1.4px 0 white;
+  text-decoration: none;
+  color: black;
+}
+
+.header-all > a::after {
+  content: "\f1e9";
+  font-family: FontAwesome;
+  font-size: 30px;
+  color: red;
+  padding-left: 2px;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  height: 33px;
+}
+
+.input-box label{
+  box-sizing: border-box;
+  background-color: white;
+  padding: 8px 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-box label:first-of-type {
+  border-radius: 5px 0 0 5px;
+}
+
+.input-box label > input {
+  border: none;
+  border-radius: none;
+  background-color: inherit;
+  height: inherit;
+  box-sizing: border-box;
+  width: 263px;
+  font-size: inherit;
+  margin-left: 5px;
+  outline: none;
+}
+
+.input-box label:active {
+  border: none;
+}
+
+.input-box label:first-of-type input{
+  border-right: 1px solid grey;
+  margin-right: -12px;
+}
+
+.input-box button {
+  width: 50px;
+  height: inherit;
+  border: none;
+  background-color: #bd1f1f;
+}
+
+.input-box button::after {
+  content:"\f002";
+  font-family: FontAwesome;
+  color: white;
+  font-size: 20px;
+}
+
+.linktopage {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.linktopage a {
+  padding: inherit;
+  border-radius: 4px;
+  border: solid 1px #c41314;
+  background:#d41314;
+  color: white;
+
+}
+
+.linktopage a:last-child {
+  color: black;
+  background-color: white;
+}
+.bg {
+  background-color: rgb(250, 250, 250);
+  height: 40px;
+}
+.cat-review {
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 972px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cat-review .cat {
+  display: flex;
+  flex-direction: row;
+}
+
+.cat-review .cat li {
+  padding: 10px;
+  color: black;
+  font-weight: 500;
+  border-right: 1px solid #e6e6e6;
+}
+.cat-review .cat li:first-of-type {
+  border-left: 1px solid #e6e6e6;
+}
+.cat-review .cat li::before {
+  content: "\f0d6";
+  font-family: FontAwesome;
+  font-size: inherit;
+  font-weight: 500;
+  padding-right: 4px;
+  /* color:black; */
+}
+
+
+
+.cat-review a {
+  padding: 10px;
+  color: black;
+  font-weight: 500;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+
+
+.cat-review a::before {
+  content: "\f040";
+  font-family: FontAwesome;
+  padding-right: 5px;
+}
+
+
+.user-icons, .profile-icons {
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 4px 0 0 4px;
+  margin-top: 10px auto;
+
+  background-image: url("https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png");
+}
+
+.profile-icons {
+  width: 60px;
+  padding: 5px;
+  margin: 8px;
+}
+
+.dropdowns, .hide-dropdowns {
+  box-sizing: border-box;
+  margin-top: 14px;
+  padding: 5px;
+  width: 20px;
+  height: 38px;
+  background: rgba(0,0,0,.25);
+}
+
+.dropdowns:hover, .hide-dropdowns:hover{
+  background: rgba(0,0,0,0.35);
+}
+
+.dropdowns:active, .hide-dropdowns:hover{
+  background: rgba(0,0,0,0.45);
+}
+
+.dropdowns-triangle {
+  position: absolute;
+  display: inline-block;
+  top: 57px;
+  right: 288px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid white;
+}
+.dropdowns::after, .hide-dropdowns::after {
+  content: "\f0d7";
+  font-family: FontAwesome;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+
+.dropdowns ul {
+  position: absolute;
+  display: block;
+  width: 220px;
+  height: 135px;
+  z-index: 1;
+  background: white;
+  top: 64px;
+  right: 260px;
+  border-radius: 5px;
+  box-shadow: -1px 4px 6px 2px rgba(0,0,0,0.09);
+}
+
+.about-me {
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 5px 0;
+  font-weight: bold;
+}
+
+.about-me::before {
+  content: "\f007";
+  font-family: FontAwesome;
+  font-size: inherit;
+  color: darkgrey;
+  margin-right: 5px;
+}
+
+.lists > li {
+  display: block;
+  position: relative;
+  text-transform: capitalize;
+  color: #0073bb;
+  margin: 5px 10px;
+}
+
+.lists > li:hover {
+  cursor: pointer;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+
+
+.user-details li {
+  color: #0073bb;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 5px 4px 0 0;
+  text-transform:capitalize;
+}
+
+
+.user-details li:last-of-type {
+  color: black;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 0 4px 0 0;
+}
+
+.user-details li:first-child:hover {
+  text-decoration: underline;
+}
+
+.hide-dropdowns > * {
+  display: none;
+}

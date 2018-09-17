@@ -4,11 +4,12 @@ import {RECEIVE_BUSINESS, RECEIVE_ALL_BUSINESSES} from '../actions/business_acti
 const businessReducer = (state={}, action) => {
   switch (action.type) {
     case RECEIVE_BUSINESS:
-      const business = action.business
+      const business = action.payload
+
       return merge({}, state, {[business.id]: business})
       return
     case RECEIVE_ALL_BUSINESSES:
-      return action.businesses;
+      return  merge({}, state,action.payload);
     default:
       return state;
   }

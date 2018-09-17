@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { requestAllBusinesses } from '../../actions/business_actions';
 
 const mapStateToProps = (state) => {
-  debugger
+  
   return {
   businesses: Object.values(state.entities.businesses)
 }}

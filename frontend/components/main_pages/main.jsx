@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {active: false}
+    this.state = {active: false};
     this.handleClick = this.handleClick.bind(this);
     this.toggleClass= this.toggleClass.bind(this);
   }
@@ -16,12 +16,12 @@ class MainPage extends React.Component {
   toggleClass() {
       const currentState = this.state.active;
       this.setState({ active: !currentState });
-  };
+  }
 
   render () {
     let toggle = "hide-dropdown";
     if (this.state.active === true) {
-      toggle = "dropdown"
+      toggle = "dropdown";
     }
 
     if (this.props.currentUser) {
@@ -30,8 +30,6 @@ class MainPage extends React.Component {
         <nav>
           <div className="nav-links">
             <Link to='/reviews'>Write a Review</Link>
-            <Link to='/reviews'>Events</Link>
-            <Link to='/reviews'>Talk</Link>
           </div>
           <div className="signup-links">
               <div className="user-icon" onClick={this.toggleClass}></div>
@@ -51,8 +49,9 @@ class MainPage extends React.Component {
               </div>
           </div>
         </nav>
-        <h1><Link to="/">Foodie</Link></h1>
-        <Link to="/businesses">BusinessPage</Link>
+        <div className="main-logo">
+          <Link to="/"><h1>Foodie</h1></Link>
+        </div>
 
       </div>);
     }
@@ -62,19 +61,18 @@ class MainPage extends React.Component {
           <nav>
             <div className="nav-links">
               <Link to='/reviews'>Write a Review</Link>
-              <Link to='/reviews'>Events</Link>
-              <Link to='/reviews'>Talk</Link>
             </div>
             <div className="signup-links">
               <Link to='/login'>Log In</Link>
               <Link to='/signup'>Sign Up</Link>
             </div>
           </nav>
-          <h1><Link to="/">Foodie</Link></h1>
-            <Link to="/businesses">BusinessPage</Link>
-
+          <div className="main-logo">
+            <Link to="/"><h1>Foodie</h1></Link>
+          </div>
 
         </div>
+        // <Link to="/businesses">BusinessPage</Link>
       );
     }
   }

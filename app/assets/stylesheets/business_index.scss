@@ -1,0 +1,30 @@
+.bg-two {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.biz-shelf {
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.biz-shelf > * {
+  padding-bottom: 4px;
+}
+
+.biz-shelf h1 {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.biz-shelf p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.map-container {
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+}

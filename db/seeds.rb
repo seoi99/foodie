@@ -10,6 +10,7 @@ Business.destroy_all
 Hour.destroy_all
 Image.destroy_all
 
+
 Business.create!(
   business_name: "Izakaya MEW",
   full_address: "38 W 39th St Midtown West",
@@ -28,17 +29,18 @@ Business.create!(
   category: "Restaurant"
 )
 
+
 Image.create!(
-  business_id: 1,
-  img_url: "/Users/bumjuseo/Desktop/foodie/app/assets/images/alcohol.jpg"
+  business_id: 7,
+  img_url: "/assets/alcohol.jpg"
 )
 Image.create!(
-  business_id: 1,
-  img_url: "/Users/bumjuseo/Desktop/foodie/app/assets/images/city.jpg"
+  business_id: 7,
+  img_url: "/assets/city.jpg"
 )
 Image.create!(
-  business_id: 2,
-  img_url: "/Users/bumjuseo/Desktop/foodie/app/assets/images/pizza.jpg"
+  business_id: 8,
+  img_url: "/assets/pizza.jpg"
 )
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -50,14 +52,14 @@ Business.all.length.times do |idx|
         business_id: Business.all[idx].id,
         day: day,
         open: "9:00",
-        close: "05:00"
+        close: "22:00"
       )
     else
       Hour.create!(
         business_id: Business.all[idx].id,
         day: day,
         open: "9:00",
-        close: "10:00"
+        close: "17:00"
       )
     end
   end

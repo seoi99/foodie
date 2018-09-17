@@ -23,13 +23,13 @@ class LoginForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    this.props.login({username:"asdasd", password:"asdasd"})
+    this.props.login({username:"asdasd", password:"asdasd"});
   }
 
   update(field) {
     return(e) => {
       this.setState({
-        [field]: e.currentTarget.value
+        [field]: e.currentTarget.value,
       });
     };
   }
@@ -46,7 +46,6 @@ class LoginForm extends React.Component {
 
 
   render() {
-
     return(
       <div>
         <div className="header"><Link to="/">Foodie</Link></div>
@@ -55,9 +54,9 @@ class LoginForm extends React.Component {
           <h3>Log In to Foodie</h3>
           <p>New to Foodie?<Link to='/signup'>Sign Up</Link></p>
           <div className="errors">{this.renderErrors()}</div>
-          <input placeholder="Username" className="signin-input-1" type="text" value={this.state.username} onChange={this.update('username')}></input>
-          <input placeholder="Password" className="signin-input-1" type="password" value={this.state.password} onChange={this.update('password')}></input>
-          <input type="submit" value="Login"/>
+            <input placeholder="Username" className="signin-input-1" type="text" value={this.state.username} onChange={this.update('username')}></input>
+            <input placeholder="Password" className="signin-input-1" type="password" value={this.state.password} onChange={this.update('password')}></input>
+            <input type="submit" value="Login"/>
           <button onClick={this.handleDemo}>Demo</button>
         </form>
           <img src="https://images.pexels.com/photos/940302/pexels-photo-940302.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
