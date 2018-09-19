@@ -33,19 +33,14 @@ Business.create!(
   price: 21
 )
 
-
-Image.create!(
-  business_id: 9,
-  img_url: "/assets/alcohol.jpg"
-)
-Image.create!(
-  business_id: 9,
-  img_url: "/assets/city.jpg"
-)
-Image.create!(
-  business_id: 10,
-  img_url: "/assets/pizza.jpg"
-)
+Images = ["/assets/alcohol.jpg", "/assets/city.jpg", "/assets/breakfast.jpg", "/assets/ramen.jpg", "/assets/pizza.jpg"]
+Business.all.length.times do |idx|
+  3.times do
+    Image.create!(
+      business_id: Business.all[idx].id,
+      img_url: Images[rand(Images.length)])
+  end
+end
 
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
