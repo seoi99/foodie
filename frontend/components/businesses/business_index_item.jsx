@@ -22,7 +22,8 @@ const BusinessIndexItem = ({business, num}) => {
       } else {
         return symb;}
   }}
-
+  const body = business.reviews[0].body || ""
+  debugger
   return(
     <li className="index-li">
       <ul className="img-list">
@@ -47,7 +48,7 @@ const BusinessIndexItem = ({business, num}) => {
           </div>
         </div>
         <p>
-          "{business.reviews[0].body}"
+          {body}
         </p>
       </div>
     </li>
