@@ -7,6 +7,22 @@ const BusinessIndexItem = ({business, num}) => {
       <li key={image.id}> <img src={image.img_url} alt={business.business_name} /></li>
       );
     });
+    const AvgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
+      if (idx + 1 <= business.average_rating) {
+        return <div className="avg-rating" key={idx}></div>
+      } else {
+        return <div className="avg-rating-bad" key={idx}></div>
+      }
+    });
+    const priceConversion = (output) => {
+      let symb = ""
+      for (let i = 10; i <= 40; i += 10) {
+      if (i <= output) {
+        symb += "$";
+      } else {
+        return symb;}
+  }}
+
   return(
     <li className="index-li">
       <ul className="img-list">
@@ -17,16 +33,12 @@ const BusinessIndexItem = ({business, num}) => {
           <div className="businessId">
             <p><Link to={`/businesses/${business.id}`}><span>{num + 1}. </span>{business.business_name}</Link></p>
             <div className="all-five-rates">
-              <div className="avg-rating"></div>
-              <div className="avg-rating"></div>
-              <div className="avg-rating"></div>
-              <div className="avg-rating"></div>
-              <div className="avg-rating"></div>
-              <span> # of reviews</span>
+              {AvgRateConversion}
+              <span>{business.reviewIds.length} reviews</span>
             </div>
             <div className="p-info-catg">
-              <p>$- p info:</p>
-              <p>category </p>
+              <p>{priceConversion(business.price)}</p>
+              <p>{business.category} </p>
             </div>
           </div>
           <div className="business-content">
@@ -35,7 +47,7 @@ const BusinessIndexItem = ({business, num}) => {
           </div>
         </div>
         <p>
-          reviews content
+          "{business.reviews[0].body}"
         </p>
       </div>
     </li>

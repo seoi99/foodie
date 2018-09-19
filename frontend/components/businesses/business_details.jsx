@@ -2,17 +2,26 @@ import React from 'react';
 import Header from '../header/header_fixed_container';
 import {Link} from 'react-router-dom';
 import GoogleMapDetails from '../business_map/google_map_details';
+import ReviewListItem from '../reviews/review_list_items';
+
+// review list
+
+// }
+
 
 class BusinessDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {review: 5};
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.props.requestBusiness(this.props.match.params.businessId);
   }
 
+  handleClick(id) {
+    // this.props.updateReview(id)
+  }
 
   render() {
       const currentDate = new Date();
@@ -20,10 +29,33 @@ class BusinessDetails extends React.Component {
       const currentHours = currentDate.getHours();
       const currentMin = currentDate.getMinutes() < 10 ? "0" + currentDate.getMinutes() : currentDate.getMinutes();
       const currentTime = currentHours.toString() + currentMin.toString();
-
-    if (this.props.business != undefined) {
       const business = this.props.business;
+
+
+      if (business !== undefined) {
+
+        const userIds = Object.keys(business.reviews)
+        const reviews = Object.values(business.reviews) || {};
+        const currentUserId = this.props.currentUserId || -1;
+        const currentReviewId = business.reviews[currentUserId];
+
+        const reviewAction = () => {
+
+          if (userIds.includes(currentUserId.toString())) {
+          return <Link to={`/businesses/${business.id}/reviews/${currentReviewId.id}`}><button>Edit a Review</button></Link>
+        } else {
+          return <Link to={`/businesses/${business.id}/reviews`}><button>Write a Review</button></Link>
+        }
+      }
+      const user = this.props.user;
+      const reviewsmap = reviews.map((review, idx) => {
+        return (
+          <ReviewListItem key={idx} review={review}/>
+        )
+      })
       const images = business.images.map(image => <img src={image.img_url} key={image.id} />);
+
+
 
       const getCurrentDay = business.hours.map(hour => {
         if (currentDay === hour.day) {
@@ -37,6 +69,9 @@ class BusinessDetails extends React.Component {
               </div>
             )
           } else {
+            if (hour.close.slice(0,2) > 12) {
+              hour.close = (hour.close.slice(0,2) - 12) + hour.close.slice(2)
+            }
             return (
               <div className="close-div" key={hour.id}> <b>Today {hour.open} am  - {hour.close} pm </b>
                 <span className="closed-status"> Closed </span>
@@ -50,8 +85,10 @@ class BusinessDetails extends React.Component {
         if (hour.close.slice(0,2) > 12) {
           hour.close = (hour.close.slice(0,2) - 12) + hour.close.slice(2)
         }
-          return (<div className="day-hours"><li key={hour.id}>{hour.day}: </li>
-          <li>{hour.open} am - {hour.close} pm </li></div>)
+          return (<div className="day-hours" key={hour.id}>
+          <li >{hour.day}: </li>
+          <li>{hour.open} am - {hour.close} pm </li>
+        </div>)
       });
 
 
@@ -67,7 +104,7 @@ class BusinessDetails extends React.Component {
 
       const avgPriceConversion = Array.from(Array(5).keys()).map((val, idx) => {
 
-        if (idx + 1 <= priceConversion(19).length) {
+        if (idx + 1 <= priceConversion(business.price).length) {
           return <li className="avg-price" key={idx}></li>
         } else {
           return <li className="avg-price-bad" key={idx}></li>
@@ -75,7 +112,7 @@ class BusinessDetails extends React.Component {
       });
 
       const avgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
-        if (idx + 1 <= this.state.review) {
+        if (idx + 1 <= business.average_rating) {
           return <li className="avg-rating" key={idx}></li>
         } else {
           return <li className="avg-rating-bad" key={idx}></li>
@@ -96,11 +133,11 @@ class BusinessDetails extends React.Component {
                   {avgRateConversion}
                 </ul>
                 <div className="price-cat">
-                  <p className="price">{priceConversion(19)}</p>
+                  <p className="price">{priceConversion(business.price)}</p>
               </div>
               </div>
               <div className="review-but-row">
-                <Link to={`/businesses/${business.id}/reviews`}><button>Write a Review</button></Link>
+                {reviewAction()}
               </div>
             </div>
             <div className="map-img">
@@ -116,8 +153,8 @@ class BusinessDetails extends React.Component {
 
           <div className="biz-show-main">
             <div className="biz-show-reviews">
-              <ul>
-                <li>Review list will be created</li>
+              <ul className="review-list">
+                {reviewsmap}
               </ul>
             </div>
 
@@ -127,7 +164,7 @@ class BusinessDetails extends React.Component {
                 <p className="web"><a href={business.website}>Full Menu</a></p>
                 <ul className="biz-sym-price">
                   {avgPriceConversion}
-                  <li> Price range Under $19 </li>
+                  <li> Price range Under ${business.price} </li>
                 </ul>
               </div>
               <ul className="biz-hours">

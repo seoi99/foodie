@@ -17,7 +17,7 @@ Business.create!(
   latitude: 40.752379,
   longitude: -73.984005,
   phone_number: "(212) 221-9002",
-  category: "Restaurant"
+  category: "Japanese, Lunch"
 )
 
 Business.create!(
@@ -26,7 +26,7 @@ Business.create!(
   latitude: 40.782379,
   longitude: -73.684005,
   phone_number: "(212) 223-9004",
-  category: "Restaurant"
+  category: "American, Lunch"
 )
 
 

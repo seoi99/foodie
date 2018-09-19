@@ -4,9 +4,11 @@ import {Link} from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {active: false};
+    this.state = {active: false, searchtxt: ""};
     this.toggleClass = this.toggleClass.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleClick(e) {
     return this.props.logout();
@@ -17,6 +19,16 @@ class Header extends React.Component {
     this.setState({active: !currentState});
   }
 
+  handleChange(e) {
+    this.setState({searchtxt: e.currentTarget.value})
+  }
+
+  handleSubmit(e) {
+
+    e.preventDefault();
+    this.props.updateFilter('business_name', this.state.searchtxt);
+
+  }
   render() {
     let toggle = "hide-dropdowns";
     if (this.state.active === true) {
@@ -31,12 +43,12 @@ class Header extends React.Component {
 
           <div className="input-box">
             <label>Find
-              <input type="text" placeholder="restaurants..."/>
+              <input type="text" placeholder="restaurants..." onChange={this.handleChange} value={this.state.searchtxt} />
             </label>
             <label>Near
               <input type="text" placeholder="location..."/>
             </label>
-            <button value="submit" className="magify"></button>
+            <button value="submit" className="magify" onClick={this.handleSubmit}></button>
           </div>
 
         <div className="user-icons" onClick={this.toggleClass}></div>

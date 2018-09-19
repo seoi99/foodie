@@ -12,6 +12,7 @@
 #  category      :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  price         :integer
 #
 
 require 'test_helper'

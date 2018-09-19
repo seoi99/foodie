@@ -22,6 +22,8 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6}, allow_nil: true
   validates :zipcode, length: {minimum: 5, maximum: 5, allow_nil: true}
 
+  has_many :reviews
+  
   after_initialize :ensure_session_token
   attr_reader :password
 
