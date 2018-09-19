@@ -15,31 +15,35 @@ Business.create!(
   business_name: "Izakaya MEW",
   full_address: "38 W 39th St Midtown West",
   latitude: 40.752379,
+  price: 39,
   longitude: -73.984005,
   phone_number: "(212) 221-9002",
-  category: "Japanese, Lunch"
+  category: "Japanese, Lunch",
+  website: "http://mewnyc.com/mew/",
 )
 
 Business.create!(
-  business_name: "Cibo",
+  business_name: "Cibaso",
   full_address: "44 W 38th St Midtown West",
   latitude: 40.782379,
   longitude: -73.684005,
   phone_number: "(212) 223-9004",
-  category: "American, Lunch"
+  category: "American, Lunch",
+  website: "www.google.com",
+  price: 21
 )
 
 
 Image.create!(
-  business_id: 7,
+  business_id: 9,
   img_url: "/assets/alcohol.jpg"
 )
 Image.create!(
-  business_id: 7,
+  business_id: 9,
   img_url: "/assets/city.jpg"
 )
 Image.create!(
-  business_id: 8,
+  business_id: 10,
   img_url: "/assets/pizza.jpg"
 )
 
