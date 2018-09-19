@@ -33,6 +33,17 @@ Business.create!(
   price: 21
 )
 
+Business.create!(
+  business_name: "Dominos",
+  full_address: "38 W 39th St Midtown West",
+  latitude: 40.752379,
+  price: 19,
+  longitude: -73.984005,
+  phone_number: "(212) 221-9102",
+  category: "Pizza, Lunch",
+  website: "http://mewnyc.com/mew/",
+)
+
 Images = ["/assets/alcohol.jpg", "/assets/city.jpg", "/assets/breakfast.jpg", "/assets/ramen.jpg", "/assets/pizza.jpg"]
 Business.all.length.times do |idx|
   3.times do

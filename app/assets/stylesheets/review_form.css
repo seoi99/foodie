@@ -1,0 +1,72 @@
+
+
+/* .review-form li::after {
+  content: '\f005';
+  font-family: FontAwesome;
+  color: white;
+  background-color: #f15c4e;
+  padding: 2px;
+  margin: 1px;
+  border-radius: 1px;
+} */
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  width: 669px;
+  margin: 30px auto;
+}
+.review-form ul {
+  text-decoration: none;
+  display: flex;
+}
+
+.star::after {
+    content: '\f005';
+    font-family: FontAwesome;
+    color: white;
+    padding: 2px;
+    margin: 1px;
+    border-radius: 1px;
+}
+
+.star {
+  padding: 2px;
+  margin: 1px;
+  color: white;
+}
+
+.star:hover {
+  background-color: red;
+}
+.star:active {
+  background-color: blue;
+}
+
+.border-form {
+  border: 1px solid black;
+}
+
+.star-color-1 {
+  background-color: yellow;
+}
+
+.star-color-2 {
+  background-color: yellow;
+}
+
+.star-color-3 {
+  background-color: orange;
+}
+
+.star-color-4 {
+  background-color: orange;
+}
+
+.star-color-5 {
+  background-color: red;
+}
+
+.starcolor-default {
+  background-color: #e6e6e6;
+}

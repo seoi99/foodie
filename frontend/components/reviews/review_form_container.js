@@ -5,7 +5,8 @@ import ReviewForm from './review_form';
 const mapStateToProps = (state) => {
 
   return {
-    review : {body: '', rating: 5}
+    review : {body: '', rating: 5},
+    formtype: "Post Review"
   }
 }
 const mapDispatchToProps = dispatch => {
