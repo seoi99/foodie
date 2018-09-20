@@ -13,7 +13,8 @@ import MainComponent from './main_pages/main_container';
 import BusinessIndexContainer from './businesses/business_index_container';
 import BusinessDetailsContainer from './businesses/business_details_container';
 import ReviewFormContainer from './reviews/review_form_container';
-import ReviewEditForm from './reviews/review_edit_form_container';
+import ReviewEditFormContainer from './reviews/review_edit_form_container';
+import HeaderContainer from './header/header_fixed_container';
 
 const App = () => {
   return(
@@ -27,8 +28,9 @@ const App = () => {
       <Route exact path="/users" component={MainComponent} />
       <Route exact path="/businesses" component={BusinessIndexContainer} />
       <Route exact path="/businesses/:businessId" component={BusinessDetailsContainer} />
-      <ProtectedRoute exact path="/businesses/:businessId/reviews/:reviewId" component={ReviewEditForm} />
-      <ProtectedRoute exact path={`/businesses/:businessId/reviews`} component={ ReviewFormContainer }/>
+      <Route exact path="/businesses/search" component={HeaderContainer} />
+      <ProtectedRoute exact path="/businesses/:businessId/reviews/:reviewId" component={ReviewEditFormContainer} />
+      <ProtectedRoute exact path="/businesses/:businessId/reviews" component={ ReviewFormContainer }/>
     </div>
 
   );

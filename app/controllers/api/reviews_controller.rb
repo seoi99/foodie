@@ -1,15 +1,17 @@
 class Api::ReviewsController < ApplicationController
-  before_action :require_logged_in
+  # before_action :require_logged_in
   # add Restaurant & user id in all of controller action? b/c user won't type it in frontend
   # we need to get it from route, current user reference...
   # once we create it should be redirected to business show page, so where should we render it to in our backend?
   # is it '/api/businesses/show'?
   # do we need index action? b/c once we create our review, it will be inside of business show page not in our review index backend
 
-
+  def index
+    @reviews = Review.all
+  end
   def create
     @review = current_user.reviews.new(review_params)
-    
+
     if @review.save
       render :show
     else
@@ -32,7 +34,7 @@ class Api::ReviewsController < ApplicationController
   def destroy
     @review = current_user.reviews.find(params[:id])
     @review.destroy
-    render 'api/businesses/index'
+    render :show
   end
 
   private

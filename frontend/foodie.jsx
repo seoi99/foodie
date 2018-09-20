@@ -5,7 +5,7 @@ import Root from './components/root';
 import * as SessionApiUtil from './util/session_api_util';
 import{fetchAllBusinesses} from './util/business_api_util';
 import{updateFilter} from './actions/filter_actions';
-import{createReview} from './actions/business_actions';
+import{createReview, requestAllBusinesses} from './actions/business_actions';
 
 
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -28,4 +28,5 @@ document.addEventListener('DOMContentLoaded', ()=> {
   window.fetchAllBusinesses = fetchAllBusinesses;
   window.createReview = createReview;
   window.updateFilter = updateFilter;
+  window.requestAllBusinesses = requestAllBusinesses;
   });

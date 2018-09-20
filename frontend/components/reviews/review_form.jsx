@@ -18,7 +18,6 @@ class ReviewForm extends React.Component {
 
 
   navigateToDetails() {
-
     const url = `/businesses/${this.props.match.params.businessId}`
     this.props.history.push(url);
   }
@@ -33,18 +32,9 @@ class ReviewForm extends React.Component {
   handleStarClick(e) {
     this.setState({rating: e.target.value})
   }
-  componentDidMount(){
-  }
-  // toggleclass() {
-  //   const currentState = this.state.active;
-  //   this.setState({active: !currentState});
-  // }
 
   render() {
-    let toggle = "avg-rating-default"
-    // if (this.state.active === true) {
-    //   toggle = "avg-rating-selected";
-    // }
+
     const avgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
         let starcolor;
         if (idx < this.state.rating) {
@@ -52,13 +42,16 @@ class ReviewForm extends React.Component {
         } else {
           starcolor = `starcolor-default`
         }
-        return <li className={`star ${starcolor}`} key={idx} value={idx + 1} onClick={this.handleStarClick} >{idx + 1}</li>
+        return <li className={`star ${starcolor}`} key={idx} value={idx + 1} onClick={this.handleStarClick} ></li>
       }
     );
+
+
     const formtype = this.props.formtype
     const review = this.props.review
 
     if (review !== undefined) {
+
     return (
       <div>
       <div className="header-all">
@@ -66,11 +59,10 @@ class ReviewForm extends React.Component {
       </div>
         <form onSubmit={this.handleSubmit} className="review-form">
           <div className="border-form">
-            <label>Rating</label>
             <ul>
             {avgRateConversion}
             </ul>
-            <textarea value={this.state.body} onChange={this.update('body')} />
+            <textarea value={this.state.body} onChange={this.update('body')} placeholder="Your review helps other local businesses to grow" />
           </div>
           <input type="submit" value={formtype}/>
         </form>

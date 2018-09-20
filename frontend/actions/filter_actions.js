@@ -9,6 +9,6 @@ export const changeFilter = (filter, value) => ({
 });
 
 export const updateFilter = (dispatch, getState) => {
-  dispatch(changeFilter(filter, value));
-  return dispatch(requestAllBusinesses(getState().filter));
+  
+  return (requestAllBusinesses(getState()))(dispatch);
 }

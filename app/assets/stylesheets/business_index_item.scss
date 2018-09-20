@@ -9,6 +9,10 @@
   padding: 10px;
 }
 
+.index-li ul {
+  padding: 0;
+}
+
 .index-li, .index-li img {
   display: flex;
   flex-direction: row;
@@ -16,6 +20,17 @@
   border-top: 1px solid #e6e6e6;
 }
 
+.img-list {
+  width: 210px;
+  height: 210px;
+  border-radius: 5px;
+  margin: 0;
+  border: 10px solid white;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("http://bailieproperty.com/54441513092018/shared/module/style/no-image.png")
+}
 .img-list li img {
   width: 210px;
   height: 210px;

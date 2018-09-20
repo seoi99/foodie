@@ -7,6 +7,8 @@ class ReviewListItem extends React.Component {
   render(){
       const review = this.props.review;
 
+
+      if (review !== undefined) {
       const RateConversion = Array.from(Array(5).keys()).map((val, idx) => {
         if (idx + 1 <= review.rating) {
           return <li className="avg-rating" key={idx}></li>
@@ -15,6 +17,7 @@ class ReviewListItem extends React.Component {
         }
       });
       return (
+
         <div className="rev-list-item">
           <div className="rev-user">
             <div className="user-icon-item"></div>
@@ -24,8 +27,13 @@ class ReviewListItem extends React.Component {
             <div>{RateConversion}</div>
             <li> {review.body}</li>
           </div>
+          <button onClick={() => this.props.deleteReview(review.id)}></button>
         </div>
       )
+      }
+      else {
+        return (<h1></h1>)
+      }
 
 }}
 

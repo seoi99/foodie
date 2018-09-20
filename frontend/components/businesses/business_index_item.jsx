@@ -22,7 +22,7 @@ const BusinessIndexItem = ({business, num}) => {
       } else {
         return symb;}
   }}
-  const body = business.reviews.length > 0 ? business.reviews[0].body : ""
+  const body = business.reviews.length > 0 ? business.reviews[0].body : "";
   return(
     <li className="index-li">
       <ul className="img-list">

@@ -3,9 +3,8 @@ import { createReview } from '../../actions/business_actions.js';
 import ReviewForm from './review_form';
 
 const mapStateToProps = (state) => {
-
   return {
-    review : {body: '', rating: 5},
+    review : {body: '', rating: 0},
     formtype: "Post Review"
   }
 }

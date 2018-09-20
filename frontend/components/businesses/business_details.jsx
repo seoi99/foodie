@@ -4,23 +4,14 @@ import {Link} from 'react-router-dom';
 import GoogleMapDetails from '../business_map/google_map_details';
 import ReviewListItem from '../reviews/review_list_items';
 
-// review list
-
-// }
-
-
 class BusinessDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+
   }
 
   componentDidMount() {
-    this.props.requestBusiness(this.props.match.params.businessId);
-  }
-
-  handleClick(id) {
-    // this.props.updateReview(id)
+    this.props.requestBusiness(this.props.businessId);
   }
 
   render() {
@@ -32,15 +23,15 @@ class BusinessDetails extends React.Component {
       const business = this.props.business;
 
 
-      if (business !== undefined) {
+      if (business !== undefined ) {
 
         const userIds = Object.keys(business.reviews)
-        const reviews = Object.values(business.reviews) || {};
+        const reviews = Object.values(business.reviews).length <= 0 ? [] : Object.values(business.reviews);
         const currentUserId = this.props.currentUserId || -1;
         const currentReviewId = business.reviews[currentUserId];
 
-        const reviewAction = () => {
 
+        const reviewAction = () => {
           if (userIds.includes(currentUserId.toString())) {
           return <Link to={`/businesses/${business.id}/reviews/${currentReviewId.id}`}><button>Edit a Review</button></Link>
         } else {
@@ -50,7 +41,7 @@ class BusinessDetails extends React.Component {
       const user = this.props.user;
       const reviewsmap = reviews.map((review, idx) => {
         return (
-          <ReviewListItem key={idx} review={review}/>
+          <ReviewListItem key={idx} review={review} deleteReview={this.props.deleteReview}/>
         )
       })
       const images = business.images.map(image => <img src={image.img_url} key={image.id} />);

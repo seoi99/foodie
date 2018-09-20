@@ -3,11 +3,10 @@ import { updateReview, createReview} from '../../actions/business_actions.js';
 import ReviewForm from './review_form';
 const mapStateToProps = (state, ownProps) => {
 
-  const review = state.entities.reviews[ownProps.match.params.reviewId] || {body:'', rating:5}
+  const review = state.entities.reviews[ownProps.match.params.reviewId] || {body:'', rating:0}
   return {
     review,
     formtype: "Edit Review",
-
   }
 }
 

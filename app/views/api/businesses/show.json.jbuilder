@@ -11,10 +11,14 @@
   end
 
   json.reviews do
-    @business.reviews.each do |review|
+    if @business.reviews.length > 0
+      @business.reviews.each do |review|
         json.set! review.user_id do
           json.extract! review, :id, :body, :rating, :user_id
           json.extract! review.user, :username, :firstname, :lastname
         end
+      end
+    else
+      json.array! []
     end
   end

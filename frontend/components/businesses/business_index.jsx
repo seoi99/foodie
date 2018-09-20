@@ -7,24 +7,21 @@ import { Link } from 'react-router-dom';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
+    
   }
 
-  componentDidMount() {
-    this.props.requestAllBusinesses();
-  }
   render() {
     const businesses = this.props.businesses.map((business, idx) => {
-
       return <BusinessIndexItem business={business} key={idx} num={idx}/>;
     });
+
     return(
       <div>
-        <HeaderContainer />
+        <HeaderContainer businesses={businesses}/>
         <div className="bg-two">
           <div className="biz-shelf">
-            <h1>Query Result given from user</h1>
-            <p>Price given from backend</p>
-            <p>filter options</p>
+            <h1>Welcome to Foodie </h1>
+
           </div>
         </div>
         <div className="biz-idx-main">

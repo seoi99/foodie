@@ -22,23 +22,17 @@
   text-decoration: none;
   display: flex;
 }
-.avg-rating::after {
+.avg-rating::after, .avg-rating-bad::after {
   content: '\f005';
   font-family: FontAwesome;
   color: white;
   background-color: #f15c4e;
   padding: 2px;
-  margin: 1px;
+  margin-right: 1px;
   border-radius: 1px;
 }
 .avg-rating-bad::after {
-  content: '\f005';
-  font-family: FontAwesome;
-  color: white;
   background-color: #cccccc;
-  padding: 2px;
-  margin: 1px;
-  border-radius: 1px;
 }
 
 

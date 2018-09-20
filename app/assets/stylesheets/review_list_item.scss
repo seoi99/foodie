@@ -28,12 +28,31 @@
 
 .rev-content{
   margin-left: 100px;
+  width: 100px;
 }
-
+.rev-content li {
+  word-wrap: break-word;
+  width: 350px;
+}
 .rev-content div {
   display: flex;
 }
 
 .rev-user li {
   width: 30px;
+}
+
+.rev-list-item button {
+  align-self: flex-end;
+  color: #f15c4e;
+  background-color: inherit;
+  border: none;
+  margin-left: 250px;
+}
+
+.rev-list-item button::after {
+  content:"\f1f8";
+  font-family: FontAwesome;
+  font-size: 20px;
+
 }
