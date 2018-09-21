@@ -12,4 +12,5 @@
 class Image < ApplicationRecord
   validates :business_id, :img_url, presence: true
   belongs_to :business
+
 end

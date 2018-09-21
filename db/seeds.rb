@@ -14,11 +14,11 @@ Image.destroy_all
 Business.create!(
   business_name: "Izakaya MEW",
   full_address: "38 W 39th St Midtown West",
-  latitude: 40.752379,
-  price: 39,
-  longitude: -73.984005,
+  latitude: 40.752157,
+  price: 21,
+  longitude: -73.984219,
   phone_number: "(212) 221-9002",
-  category: "Japanese, Lunch",
+  category: "Japanese, Lunch, Delivery",
   website: "http://mewnyc.com/mew/",
 )
 
@@ -31,6 +31,17 @@ Business.create!(
   category: "American, Lunch",
   website: "www.google.com",
   price: 21
+)
+
+Business.create!(
+  business_name: "Pokéworks",
+  full_address: "63 W 37th St New York, NY 10018",
+  latitude: 40.7513478,
+  longitude: -73.9837934,
+  phone_number: "(212) 575-8881",
+  category: "Japanese, Lunch, Delivery",
+  website: "http://www.pokeworks.com/bryant-park/?utm_source=Yelp&utm_medium=Organic-Website",
+  price: 19
 )
 
 Business.create!(

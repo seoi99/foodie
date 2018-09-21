@@ -1,7 +1,7 @@
-import React from 'react';
+  import React from 'react';
 import Header from '../header/header_fixed_container';
 import {Link} from 'react-router-dom';
-import GoogleMapDetails from '../business_map/google_map_details';
+import GoogleMap from '../business_map/google_map';
 import ReviewListItem from '../reviews/review_list_items';
 
 class BusinessDetails extends React.Component {
@@ -111,7 +111,6 @@ class BusinessDetails extends React.Component {
       });
 
 
-
         return(
         <div>
           <Header />
@@ -133,7 +132,7 @@ class BusinessDetails extends React.Component {
             </div>
             <div className="map-img">
               <div className="map-details">
-              <GoogleMapDetails/>
+              <GoogleMap requestBusiness={this.props.requestBusiness} business={this.props.business} businessId={this.props.businessId} singleBusiness={true}/>
               <p>{business.full_address}</p>
               <p>{business.phone_number}</p>
               </div>

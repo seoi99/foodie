@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {requestBusiness, deleteReview} from '../../actions/business_actions';
 import {withRouter} from 'react-router-dom';
 import {selectReviewsForBusiness} from '../../reducers/selector';
+import { updateFilter } from '../../actions/filter_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
   const business = state.entities.businesses[ownProps.match.params.businessId];
@@ -21,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
   requestBusiness: (id) => dispatch(requestBusiness(id)),
-  deleteReview: (id) => dispatch(deleteReview(id))
+  deleteReview: (id) => dispatch(deleteReview(id)),
   };
 
 };

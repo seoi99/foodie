@@ -22,13 +22,18 @@
   margin: 0;
   font-size: 14px;
 }
-
-.map-container {
-  width: 330px;
-  height: 650px;
-  border-radius: 5px;
-}
-
 .avg-revnum span {
   margin-left: 5px;
+}
+
+.all-map #map  {
+  width: 330px;
+  height: 650px;
+  border-radius: none;
+  color: none;
+}
+
+.map-details #map {
+  height: 135px;
+  width: 280px;
 }

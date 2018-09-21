@@ -7,15 +7,21 @@ import { Link } from 'react-router-dom';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
-    
+
+  }
+  componentDidMount(){
   }
 
+  componentDidUpdate() {
+
+  }
   render() {
+
     const businesses = this.props.businesses.map((business, idx) => {
       return <BusinessIndexItem business={business} key={idx} num={idx}/>;
     });
 
-    return(
+      return(
       <div>
         <HeaderContainer businesses={businesses}/>
         <div className="bg-two">
@@ -29,13 +35,13 @@ class BusinessIndex extends React.Component {
             {businesses}
           </ul>
           <div className="all-map">
-            <GoogleMap/>
+            <GoogleMap requestAllBusiness={this.props.requestAllBusinesses} businesses={this.props.businesses} singleBusiness={false}/>
           </div>
         </div>
-
       </div>
     );
   }
 }
+
 
 export default BusinessIndex;
