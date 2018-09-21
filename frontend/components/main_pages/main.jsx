@@ -95,7 +95,6 @@ class MainPage extends React.Component {
       businesses = Object.values(this.props.businesses).map((business, idx) => {
     return <BusinessMainIndexItem business={business} key={idx} />
     }).reverse().filter((val, idx) => idx < 3)}
-
       return(
       <div>
       <div className="main-image" >

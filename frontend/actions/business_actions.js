@@ -6,10 +6,16 @@ export const RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_ALL_REVIEW = 'RECEIVE_ALL_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
+export const RECEIVE_REVIEW_ERROR = 'RECEIVE_REVIEW_ERROR';
 
 export const receiveAllBusinesses = (payload) => ({
   type: RECEIVE_ALL_BUSINESSES,
   payload,
+});
+
+export const receiveReviewErrors = (errors) => ({
+  type: RECEIVE_REVIEW_ERROR,
+  errors
 });
 
 export const receiveSelectedBusinesses = (businesses, searchtxt) => {
@@ -85,7 +91,9 @@ export const removeReview = ({review}) => {
 export const createReview = review => dispatch => {
   return BusinessApiUtil.createReview(review).then(review => (
     dispatch(receiveReview(review))
-  ))
+  ), (error) => {
+    dispatch(receiveReviewErrors(error.responseJSON))
+  })
 };
 
 
@@ -93,12 +101,16 @@ export const updateReview = review => dispatch => {
 
   return BusinessApiUtil.updateReview(review).then(review => (
     dispatch(receiveReview(review))
-  ))
+  ), (error) => {
+    dispatch(receiveReviewErrors(error.responseJSON))
+  })
 };
 
 export const deleteReview = id => dispatch => {
 
   return BusinessApiUtil.deleteReview(id).then(review => (
     dispatch(removeReview(review))
-  ))
+  ), (error) => {
+    dispatch(receiveReviewErrors(error.responseJSON))
+  })
 };

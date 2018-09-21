@@ -100,13 +100,13 @@ class Header extends React.Component {
       <div className="bg">
         <div className="cat-review">
           <ul className="cat">
-            <li value="Delivery" onClick={this.handleButtonClick}><i className="fa fa-car"></i> Delivery</li>
-            <li value="Salad" onClick={this.handleButtonClick}> <i className="icon-food"></i> Salad</li>
-            <li value="Fast Food" onClick={this.handleButtonClick}>Fast Food</li>
-            <li value="Japanese" onClick={this.handleButtonClick}>Japanese</li>
-            <li value="Chinese" onClick={this.handleButtonClick}>Chinese</li>
-            <li value="Italian" onClick={this.handleButtonClick}>Italian</li>
-            <li value="Korean" onClick={this.handleButtonClick}>Korean</li>
+            <li value="Delivery" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Delivery</li>
+            <li value="Salad" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Salad</li>
+            <li value="Fast Food" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Fast Food</li>
+            <li value="Japanese" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Japanese</li>
+            <li value="Chinese" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Chinese</li>
+            <li value="Italian" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Italian</li>
+            <li value="Korean" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Korean</li>
           </ul>
           <Link to="/">Write a Review</Link>
         </div>

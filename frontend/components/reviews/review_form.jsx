@@ -8,6 +8,7 @@ class ReviewForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToDetails = this.navigateToDetails.bind(this);
     this.handleStarClick = this.handleStarClick.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -21,6 +22,8 @@ class ReviewForm extends React.Component {
     const url = `/businesses/${this.props.match.params.businessId}`
     this.props.history.push(url);
   }
+
+
   handleSubmit(e) {
     e.preventDefault();
     const businessId = parseInt(this.props.match.params.businessId);
@@ -33,8 +36,18 @@ class ReviewForm extends React.Component {
     this.setState({rating: e.target.value})
   }
 
-  render() {
+  renderErrors() {
+    return(
+      <ul className={"error"}>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>))}
+      </ul>
+    );
+  }
 
+  render() {
     const avgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
         let starcolor;
         if (idx < this.state.rating) {
@@ -46,10 +59,14 @@ class ReviewForm extends React.Component {
       }
     );
 
-
     const formtype = this.props.formtype
     const review = this.props.review
-
+    let evento;
+    if (this.renderErrors) {
+      evento = (this.props.errors)
+    } else {
+       evento = this.navigateToDetails();
+    }
     if (review !== undefined) {
 
     return (
@@ -58,11 +75,12 @@ class ReviewForm extends React.Component {
         <Link to="/">Foodie</Link>
       </div>
         <form onSubmit={this.handleSubmit} className="review-form">
+          <h1>{this.props.businessName}</h1>
           <div className="border-form">
             <ul>
             {avgRateConversion}
             </ul>
-            <textarea value={this.state.body} onChange={this.update('body')} placeholder="Your review helps other local businesses to grow" />
+            <textarea value={this.state.body} onChange={this.update('body')} placeholder="Your review helps others learn about great local businesses."/>
           </div>
           <input type="submit" value={formtype}/>
         </form>

@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import { createReview } from '../../actions/business_actions.js';
 import ReviewForm from './review_form';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     review : {body: '', rating: 0},
+    errors: state.errors.review,
+    businessName: state.entities.businesses[ownProps.match.params.businessId].business_name,
     formtype: "Post Review"
   }
 }
