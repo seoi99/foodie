@@ -299,17 +299,47 @@ a {
   display: none;
 }
 
-.cat li {
-  cursor: pointer;
+.cat {
+  display: flex;
+  justify-content: flex-start;
 }
 
-.goto-cat li {
+.cat input {
   cursor: pointer;
+  border: none;
+  width: 100px;
+  height: 100%;
+  font-size: 15px;
+  background-color: inherit;
+  border-right: 1px solid #e6e6e6;
 }
-.goto-cat li:hover {
+
+.cat input:first-of-type {
+  border-left: 1px solid #e6e6e6;
+}
+
+.cat input:hover{
+  text-decoration: underline;
+}
+.goto-cat input {
+  background-color: inherit;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+
+}
+.goto-cat input:hover {
   text-decoration: underline;
 }
 
+.goto-cat .fa-spoon {
+  color: white;
+}
 button {
   cursor: pointer;
+}
+
+.fa {
+  margin: auto 0;
 }

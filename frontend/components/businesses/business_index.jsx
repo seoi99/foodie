@@ -8,7 +8,7 @@ class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
 
     const businesses = this.props.businesses.map((business, idx) => {

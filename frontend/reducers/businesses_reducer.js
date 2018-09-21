@@ -11,6 +11,7 @@ const businessReducer = (state={}, action) => {
     case RECEIVE_SELECTED_BUSINESSES:
       const { businesses, businessKeys, searchtxt} = action;
       const BusinessNameCheck = businessKeys.map(val => {
+        debugger
         if (businesses[val].business_name.toLowerCase().includes(searchtxt.toLowerCase()) || businesses[val].category.toLowerCase().includes(searchtxt.toLowerCase())) {
           return businesses[val]
         }

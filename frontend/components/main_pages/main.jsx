@@ -45,7 +45,7 @@ class MainPage extends React.Component {
 
   componentDidMount() {
     this.props.requestAllReviews();
-    this.props.requestAllBusinesses();
+    // this.props.requestAllBusinesses();
   }
 
   render () {
@@ -121,17 +121,17 @@ class MainPage extends React.Component {
           </div>
         </div>
         <ul className="goto-cat">
-          <li value="Delivery" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Delivery</li>
-          <li className="salad" value="Salad" onClick={this.handleButtonClick}> <i className="fa fa-spoon"></i> Salad</li>
-          <li value="Fast Food" onClick={this.handleButtonClick}> <i className="fa fa-spoon"></i> Fast Food</li>
-          <li value="Japanese" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Japanese</li>
-          <li value="Chinese" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Chinese</li>
-          <li value="Italian" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Italian</li>
-          <li value="Korean" onClick={this.handleButtonClick}> <i className="fa fa-spoon"></i> Korean</li>
+            <i className="fa fa-spoon"></i><input type="button" value="Delivery" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Salad" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Fast Food" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Japanese" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Chinese" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Italian" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Korean" onClick={this.handleButtonClick} />
         </ul>
       </div>
       <div className="main-business">
-        <h1>Hot & New Businesses</h1>
+        <h1>Last Visited Businesses</h1>
         <ul className="biz-index-container">
           {businesses}
         </ul>

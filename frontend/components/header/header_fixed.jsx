@@ -30,7 +30,9 @@ class Header extends React.Component {
 
   handleButtonClick(e) {
     e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses, e.currentTarget.value)
+    // this.setState({searchtxt: e.currentTarget.value})
+    debugger
+    this.props.getSelectedBusinesses(this.props.businesses,e.target.value)
     this.navigateToIndex();
   }
 
@@ -100,13 +102,13 @@ class Header extends React.Component {
       <div className="bg">
         <div className="cat-review">
           <ul className="cat">
-            <li value="Delivery" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Delivery</li>
-            <li value="Salad" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Salad</li>
-            <li value="Fast Food" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Fast Food</li>
-            <li value="Japanese" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Japanese</li>
-            <li value="Chinese" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Chinese</li>
-            <li value="Italian" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Italian</li>
-            <li value="Korean" onClick={this.handleButtonClick}><i className="fa fa-spoon"></i> Korean</li>
+            <input type="button" value="Delivery" onClick={this.handleButtonClick}/>
+            <input type="button" value="Salad" onClick={this.handleButtonClick} />
+            <input type="button" value="Fast Food" onClick={this.handleButtonClick} />
+            <input type="button" value="Japanese" onClick={this.handleButtonClick} />
+            <input type="button" value="Chinese" onClick={this.handleButtonClick} />
+            <input type="button" value="Italian" onClick={this.handleButtonClick} />
+            <input type="button" value="Korean" onClick={this.handleButtonClick} />
           </ul>
           <Link to="/">Write a Review</Link>
         </div>
