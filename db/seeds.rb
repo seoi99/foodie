@@ -12,7 +12,6 @@ Image.destroy_all
 Review.destroy_all
 
 
-
 Business.create!(
   business_name: "Izakaya MEW",
   full_address: "38 W 39th St Midtown West",
@@ -113,6 +112,42 @@ Business.create!(
 )
 
 
+Review.create!(
+  id: 71,
+  user_id: 4,
+  business_id: Business.all[random(10)].id,
+  body: "Fast delivery and great price.",
+  rating: 3)
+Review.create!(
+  id: 72,
+  user_id: 4,
+  business_id: Business.all[random(10)].id,
+  body: "Highly recommend this place. Try the pasta and sushi",
+  rating: 4)
+Review.create!(
+  id: 73,
+  user_id: 4,
+  business_id: Business.all[random(10)].id,
+  body: "best poke in the town, order online to get your food quickly",
+  rating: 5)
+Review.create!(
+  id: 74,
+  user_id: 2,
+  business_id: Business.all[random(10)].id,
+  body: "Amazing food, prepared fresh and kind friendly staff.\n\nrecommend to try sushi burrito.",
+  rating: 4)
+Review.create!(
+  id: 75,
+  user_id: 2,
+  business_id: Business.all[random(10)].id,
+  body: "food is tasty, but it is too expensive.",
+  rating: 3)
+Review.create!(
+  id: 76,
+  user_id: 2,
+  business_id: Business.all[random(10)].id,
+  body: "fast foood!",
+  rating: 2)
 
 japaneseImageMap = Dir.glob("app/assets/images/japanese/*").map do |path|
    "assets/japanese/"+ File.basename(path)
