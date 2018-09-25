@@ -17,7 +17,7 @@ class BusinessIndex extends React.Component {
 
       return(
       <div>
-        <HeaderContainer businesses={businesses}/>
+        <HeaderContainer/>
         <div className="bg-two">
           <div className="biz-shelf">
             <h1>Welcome to Foodie </h1>

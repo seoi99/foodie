@@ -1,5 +1,5 @@
   import React from 'react';
-import Header from '../header/header_fixed_container';
+import HeaderContainer from '../header/header_fixed_container';
 import {Link} from 'react-router-dom';
 import GoogleMap from '../business_map/google_map';
 import ReviewListItem from '../reviews/review_list_items';
@@ -49,8 +49,10 @@ class BusinessDetails extends React.Component {
 
 
       const getCurrentDay = business.hours.map(hour => {
+
         if (currentDay === hour.day) {
           if (parseInt(currentTime) > hour.open.replace(":","") && parseInt(currentTime) < hour.close.replace(":","")) {
+
             if (hour.close.slice(0,2) > 12) {
               hour.close = (hour.close.slice(0,2) - 12) + hour.close.slice(2)
             }
@@ -113,7 +115,7 @@ class BusinessDetails extends React.Component {
 
         return(
         <div>
-          <Header />
+          <HeaderContainer/>
           <div className="bg-three">
             <div className="width-all">
             <div className="bizn-review">

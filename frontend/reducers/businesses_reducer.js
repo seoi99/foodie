@@ -5,18 +5,15 @@ const businessReducer = (state={}, action) => {
   switch (action.type) {
     case RECEIVE_BUSINESS:
       const business = action.payload
-      return merge({}, state, {[business.id]: business})
-    case RECEIVE_ALL_BUSINESSES:
-      return  merge({}, state, action.payload);
+      return Object.assign({}, {[business.id]: business})
     case RECEIVE_SELECTED_BUSINESSES:
       const { businesses, businessKeys, searchtxt} = action;
-      const BusinessNameCheck = businessKeys.map(val => {
-        debugger
-        if (businesses[val].business_name.toLowerCase().includes(searchtxt.toLowerCase()) || businesses[val].category.toLowerCase().includes(searchtxt.toLowerCase())) {
-          return businesses[val]
+      const BusinessFiltered = businessKeys.map(key => {
+        if (!(businesses[key].business_name.toLowerCase().includes(searchtxt.toLowerCase()) || businesses[key].category.toLowerCase().includes(searchtxt.toLowerCase()))) {
+          delete businesses[key]
         }
-      }).filter(val => val !== undefined);
-      return BusinessNameCheck;
+      })
+      return Object.assign({},businesses)
     case RECEIVE_REVIEW:
      const { review, average_rating } = action;
      const newState = merge({}, state);

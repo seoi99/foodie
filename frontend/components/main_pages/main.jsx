@@ -45,7 +45,7 @@ class MainPage extends React.Component {
 
   componentDidMount() {
     this.props.requestAllReviews();
-    // this.props.requestAllBusinesses();
+    this.props.requestAllBusinesses();
   }
 
   render () {
@@ -53,7 +53,7 @@ class MainPage extends React.Component {
     if (this.state.active === true) {
       toggle = "dropdown";
     }
-    let signinform
+    let signinform;
     if (this.props.currentUser) {
       signinform = (
       <div className="signup-links">
@@ -92,9 +92,10 @@ class MainPage extends React.Component {
 
     let businesses;
     if (Object.keys(this.props.businesses).length > 0) {
-      businesses = Object.values(this.props.businesses).map((business, idx) => {
+    businesses = Object.values(this.props.businesses).map((business, idx) => {
     return <BusinessMainIndexItem business={business} key={idx} />
     }).reverse().filter((val, idx) => idx < 3)}
+
       return(
       <div>
       <div className="main-image" >
@@ -111,7 +112,7 @@ class MainPage extends React.Component {
           <div className="input-box">
             <form onSubmit={this.handleSubmit}>
             <label>Find
-              <input type="text" placeholder="restaurants..." onChange={this.handleChange} value={this.state.searchtxt} />
+              <input type="text" placeholder="korean, japanese, salad..." onChange={this.handleChange} value={this.state.searchtxt} />
             </label>
             <label>Near
               <input type="text" placeholder="location..."/>
@@ -125,13 +126,11 @@ class MainPage extends React.Component {
             <i className="fa fa-spoon"></i><input type="button" value="Salad" onClick={this.handleButtonClick} />
             <i className="fa fa-spoon"></i><input type="button" value="Fast Food" onClick={this.handleButtonClick} />
             <i className="fa fa-spoon"></i><input type="button" value="Japanese" onClick={this.handleButtonClick} />
-            <i className="fa fa-spoon"></i><input type="button" value="Chinese" onClick={this.handleButtonClick} />
-            <i className="fa fa-spoon"></i><input type="button" value="Italian" onClick={this.handleButtonClick} />
             <i className="fa fa-spoon"></i><input type="button" value="Korean" onClick={this.handleButtonClick} />
         </ul>
       </div>
       <div className="main-business">
-        <h1>Last Visited Businesses</h1>
+        <h1>Hot & New Businesses </h1>
         <ul className="biz-index-container">
           {businesses}
         </ul>

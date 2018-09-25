@@ -7,6 +7,7 @@ import { updateFilter } from '../../actions/filter_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
+
   const business = state.entities.businesses[ownProps.match.params.businessId];
   const currentUserId = state.session.currentUserId;
   const businessId  = ownProps.match.params.businessId;

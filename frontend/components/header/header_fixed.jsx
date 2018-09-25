@@ -11,8 +11,8 @@ class Header extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
-
   }
+
   handleClick(e) {
     return this.props.logout();
   }
@@ -21,17 +21,14 @@ class Header extends React.Component {
     const currentState = this.state.active;
     this.setState({active: !currentState});
   }
-  navigateToIndex() {
-    this.props.history.push('/businesses')
-  }
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value})
   }
-
+  navigateToIndex() {
+    this.props.history.push('/businesses/')
+  }
   handleButtonClick(e) {
     e.preventDefault();
-    // this.setState({searchtxt: e.currentTarget.value})
-    debugger
     this.props.getSelectedBusinesses(this.props.businesses,e.target.value)
     this.navigateToIndex();
   }
@@ -88,7 +85,7 @@ class Header extends React.Component {
           <div className="input-box">
             <form onSubmit={this.handleSubmit}>
             <label>Find
-              <input type="text" placeholder="restaurants..." onChange={this.handleChange} value={this.state.searchtxt} />
+              <input type="text" placeholder="korean, japanese, salad ..." onChange={this.handleChange} value={this.state.searchtxt} />
             </label>
             <label>Near
               <input type="text" placeholder="location..."/>
@@ -106,16 +103,13 @@ class Header extends React.Component {
             <input type="button" value="Salad" onClick={this.handleButtonClick} />
             <input type="button" value="Fast Food" onClick={this.handleButtonClick} />
             <input type="button" value="Japanese" onClick={this.handleButtonClick} />
-            <input type="button" value="Chinese" onClick={this.handleButtonClick} />
-            <input type="button" value="Italian" onClick={this.handleButtonClick} />
             <input type="button" value="Korean" onClick={this.handleButtonClick} />
           </ul>
           <Link to="/">Write a Review</Link>
         </div>
     </div>
     </div>
-
-        );
+    );
   }
 }
 

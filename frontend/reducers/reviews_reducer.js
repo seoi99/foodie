@@ -10,9 +10,9 @@ const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_REVIEW:
-      return merge({}, state, action.reviews)
+      return Object.assign({}, action.reviews)
     case RECEIVE_BUSINESS:
-      return merge({}, state, action.reviews);
+      return merge({}, state, action.payload.reviews);
     case RECEIVE_REVIEW:
       const { review } = action;
       return merge({}, state, { [review.id]: review });
