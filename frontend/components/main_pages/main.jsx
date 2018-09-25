@@ -25,7 +25,7 @@ class MainPage extends React.Component {
       this.setState({ active: !currentState });
   }
   navigateToIndex() {
-    this.props.history.push('/businesses')
+    this.props.history.push("/businesses")
   }
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value})

@@ -6,14 +6,15 @@ const businessReducer = (state={}, action) => {
     case RECEIVE_BUSINESS:
       const business = action.payload
       return Object.assign({}, {[business.id]: business})
+    case RECEIVE_ALL_BUSINESSES:
+      return Object.assign({}, action.payload);
     case RECEIVE_SELECTED_BUSINESSES:
       const { businesses, businessKeys, searchtxt} = action;
       const BusinessFiltered = businessKeys.map(key => {
         if (!(businesses[key].business_name.toLowerCase().includes(searchtxt.toLowerCase()) || businesses[key].category.toLowerCase().includes(searchtxt.toLowerCase()))) {
           delete businesses[key]
-        }
-      })
-      return Object.assign({},businesses)
+        }})
+      return businesses
     case RECEIVE_REVIEW:
      const { review, average_rating } = action;
      const newState = merge({}, state);

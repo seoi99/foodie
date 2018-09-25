@@ -25,11 +25,11 @@ class Header extends React.Component {
     this.setState({searchtxt: e.currentTarget.value})
   }
   navigateToIndex() {
-    this.props.history.push('/businesses/')
+    this.props.history.push(`/businesses`)
   }
   handleButtonClick(e) {
     e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses,e.target.value)
+    this.props.getSelectedBusinesses(this.props.businesses, e.target.value)
     this.navigateToIndex();
   }
 

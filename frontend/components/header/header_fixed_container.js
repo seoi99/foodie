@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
     getSelectedBusinesses: (data, searchtxt) => dispatch(getSelectedBusinesses(data, searchtxt)),
+    requestAllBusinesses: (data) => dispatch(requestAllBusinesses(data)),
 
   };
 };
