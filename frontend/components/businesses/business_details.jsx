@@ -24,12 +24,10 @@ class BusinessDetails extends React.Component {
 
 
       if (business !== undefined ) {
-
-        const userIds = Object.keys(business.reviews)
-        const reviews = Object.values(business.reviews).length <= 0 ? [] : Object.values(business.reviews);
+        const reviews = business.reviews === undefined ? {} : business.reviews
+        const userIds = Object.keys(reviews)
         const currentUserId = this.props.currentUserId || -1;
-        const currentReviewId = business.reviews[currentUserId];
-
+        const currentReviewId = reviews[currentUserId];
 
         const reviewAction = () => {
           if (userIds.includes(currentUserId.toString())) {
@@ -39,7 +37,7 @@ class BusinessDetails extends React.Component {
         }
       }
       const user = this.props.user;
-      const reviewsmap = reviews.map((review, idx) => {
+      const reviewsmap = Object.values(reviews).map((review, idx) => {
         return (
           <ReviewListItem key={idx} review={review} deleteReview={this.props.deleteReview}/>
         )
