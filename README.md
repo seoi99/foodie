@@ -18,19 +18,20 @@ Please feel free to take a look at my website!
 
 ### Search
 * User can search restaurant by name / category
+
+
 ![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/name.png)
 
 
 
 ### Google Map API
 * User will be enable see marker on the map, and once user click's on marker it will navigate direction.
+* create marker based on business lat, lng information from props that can be retrieved from business details component
+* once it has been received, place marker on current map
+
 
 ![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/map.png)
 
-
-
-* create marker based on business lat, lng information from props that can be received from business index component
-* once it has been received, place its data into new google map API function Marker into current map
 
 ``` javascript
 createMarkerFromBusiness(business) {
@@ -44,7 +45,7 @@ createMarkerFromBusiness(business) {
   this.markers[marker.businessId] = marker;
 }
 ```
-* on user click, direct user to Google Map that enable user to get direction.
+* on click, direct user to Google Map that enable user to get direction.
 
 ``` javascript
 handleMarkerClick(business) {
@@ -58,13 +59,14 @@ handleMarkerClick(business) {
 ### CRUD Functionality
 
 * User can create/edit/delete/update a review
+* user can only create one review per restaurant
+* if user wrote review for restaurant, he/she would be only able to edit review.
+* user will only be able to delete only if he/she is current user.
+
 
 
 ![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/review.png)
 
-* user can only create one review per restaurant
-* if user wrote review for restaurant, he/she would be only able to edit review.
-* user will only be able to delete only if he/she is current user.
 
 ``` ruby
 def destroy
