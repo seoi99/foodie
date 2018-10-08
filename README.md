@@ -9,24 +9,42 @@ It is full-stack application that uses
  Ruby on the rails as a backend to store data,
 uses JQuery, React, Redux as a frontend framework to interact with user's  preference over Food.
 
-
 Please feel free to take a look at my website!
+
+
 ![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/main.png)
 
 ## Feature
 
 ### Search
-* User can search restaurant by name
+* User can search restaurant by name / category
 ![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/name.png)
 
-* User can search restaurant by category
-![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/category.png)
 
 
 ### Google Map API
 * User will be enable see marker on the map, and once user click's on marker it will navigate direction.
+
 ![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/map.png)
-![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/navigation.png)
+
+
+
+* create marker based on business lat, lng information from props that can be received from business index component
+* once it has been received, place its data into new google map API function Marker into current map
+
+``` javascript
+createMarkerFromBusiness(business) {
+  const position = new google.maps.LatLng(business.latitude, business.longitude);
+  const marker = new google.maps.Marker({
+    position,
+    map: this.map,
+    businessId: business.id,
+  })
+  marker.addListener('click', () => this.handleClick(business));
+  this.markers[marker.businessId] = marker;
+}
+```
+* on user click, direct user to Google Map that enable user to get direction.
 
 ``` javascript
 handleMarkerClick(business) {
@@ -36,8 +54,27 @@ handleMarkerClick(business) {
 ```
 
 
-### CRUD Functionality
-``` javascript
 
+### CRUD Functionality
+
+* User can create/edit/delete/update a review
+
+
+![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/review.png)
+
+* user can only create one review per restaurant
+* if user wrote review for restaurant, he/she would be only able to edit review.
+* user will only be able to delete only if he/she is current user.
+
+``` ruby
+def destroy
+  @review = current_user.reviews.find(params[:id])
+  @review.destroy
+  render :show
+end
 ```
+
+
+
+
 ###
