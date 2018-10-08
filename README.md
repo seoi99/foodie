@@ -17,16 +17,16 @@ Please feel free to take a look at my website!
 
 ### Search
 * User can search restaurant by name
-![alt text](https://github.com/seoi99/foodie/tree/master/app/assets/images/name.png)
+![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/name.png)
 
 * User can search restaurant by category
-![alt text](https://github.com/seoi99/foodie/tree/master/app/assets/images/category.png)
+![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/category.png)
 
 
 ### Google Map API
 * User will be enable see marker on the map, and once user click's on marker it will navigate direction.
-![alt text](https://github.com/seoi99/foodie/tree/master/app/assets/images/map.png)
-![alt text](https://github.com/seoi99/foodie/tree/master/app/assets/images/navigation.png)
+![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/map.png)
+![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/navigation.png)
 
 ``` javascript
 handleMarkerClick(business) {
