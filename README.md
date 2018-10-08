@@ -11,7 +11,7 @@ uses JQuery, React, Redux as a frontend framework to interact with user's  prefe
 
 
 Please feel free to take a look at my website!
-![alt text](https://github.com/seoi99/foodie/tree/master/app/assets/images/main.png)
+![alt text](https://github.com/seoi99/foodie/blob/master/app/assets/images/main.png)
 
 ## Feature
 
