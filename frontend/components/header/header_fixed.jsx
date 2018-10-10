@@ -26,6 +26,7 @@ class Header extends React.Component {
   }
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value});
+    this.props.requestAllBusinesses();
   }
 
   navigateToIndex() {
@@ -95,10 +96,10 @@ class Header extends React.Component {
               <label className="lab-flex">Find
                 <input type="text" placeholder="korean, japanese, salad ..."
                   onChange={this.handleChange} value={this.state.searchtxt}
-                  onClick={this.clicked} onKeyDown={this.keydown}
+                  onClick={this.clicked}
                    />
                 <div className={this.state.dropdown}>
-                  <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange}/>
+                  <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
                 </div>
               </label>
               <label>Near

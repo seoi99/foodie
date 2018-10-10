@@ -4,11 +4,19 @@ class ReviewListItem extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render(){
       const review = this.props.review;
 
 
       if (review !== undefined) {
+
+      let deleteButton;
+        if (this.props.currentUserId === this.props.review.user_id) {
+          deleteButton = <button onClick={() => this.props.deleteReview()}></button>
+        }
+
+
       const RateConversion = Array.from(Array(5).keys()).map((val, idx) => {
         if (idx + 1 <= review.rating) {
           return <li className="avg-rating" key={idx}></li>
@@ -17,17 +25,21 @@ class ReviewListItem extends React.Component {
         }
       });
       return (
-
+        <div className="but-nobut">
         <div className="rev-list-item">
           <div className="rev-user">
             <div className="user-icon-item"></div>
             <li>{review.firstname}</li>
           </div>
           <div className="rev-content">
-            <div>{RateConversion}</div>
+            <div className="rev-col">
+            <div className="star-revss">{RateConversion}</div>
             <li> {review.body}</li>
+            </div>
           </div>
-          <button onClick={() => this.props.deleteReview(review.id)}></button>
+        </div>
+        {deleteButton}
+
         </div>
       )
       }

@@ -11,6 +11,7 @@ class ReviewForm extends React.Component {
     this.navigateToDetails = this.navigateToDetails.bind(this);
     this.handleStarClick = this.handleStarClick.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    debugger
   }
 
   update(field) {
@@ -50,6 +51,9 @@ class ReviewForm extends React.Component {
   }
 
   render() {
+    if (this.props.review) {
+      debugger
+    }
     const avgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
         let starcolor;
         if (idx < this.state.rating) {

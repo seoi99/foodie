@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 import Footer  from '../footer/footer';
 import ReviewIndex  from './review_index';
 import BusinessMainIndexItem  from './business_main_index';
+import Dropdown from '../header/dropdown';
+
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {active: false, searchtxt:""};
+    this.state = {active: false, searchtxt:"", dropdown: "hidden"};
     this.handleClick = this.handleClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.toggleClass= this.toggleClass.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
+    this.clicked = this.clicked.bind(this);
+
   }
 
   handleClick(e) {
@@ -29,12 +33,19 @@ class MainPage extends React.Component {
   }
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value})
+    this.props.requestAllBusinesses();
+
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.getSelectedBusinesses(this.props.businesses, this.state.searchtxt)
+    this.setState({dropdown: "hidden"});
     this.navigateToIndex();
+  }
+
+  clicked() {
+    this.setState({dropdown:"show"})
   }
 
   handleButtonClick(e) {
@@ -112,7 +123,10 @@ class MainPage extends React.Component {
           <div className="input-box">
             <form onSubmit={this.handleSubmit}>
             <label>Find
-              <input type="text" placeholder="korean, japanese, salad..." onChange={this.handleChange} value={this.state.searchtxt} />
+              <input type="text" placeholder="korean, japanese, salad..." onChange={this.handleChange} value={this.state.searchtxt} onClick={this.clicked}/>
+              <div className={this.state.dropdown}>
+                <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
+              </div>
             </label>
             <label>Near
               <input type="text" placeholder="location..."/>

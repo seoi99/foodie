@@ -11,11 +11,13 @@ const mapStateToProps = (state, ownProps) => {
   const currentUserId = state.session.currentUserId;
   const businessId  = ownProps.match.params.businessId;
   const user = state.entities.users[currentUserId];
+  const errors = state.errors
   return {
   businessId,
   business,
   currentUserId,
   user,
+  errors,
   };
 };
 

@@ -8,7 +8,7 @@ const filtersReducer = (state = {}, action) => {
     const newFilter = {
       [action.filter]: action.value
     };
-    
+
     return merge({}, state, newFilter);
   } else {
     return state;
@@ -16,14 +16,3 @@ const filtersReducer = (state = {}, action) => {
 };
 
 export default filtersReducer;
-
-
-// d = Object.values(getState().entities.businesses)
-// d.map(bus => {
-//   filtered_arr = []
-//   if (bus.business_name.includes(searchtext)) {
-//     filtered_arr.push(bus)
-//   } else {
-//   }
-//   return filtered_arr
-// })

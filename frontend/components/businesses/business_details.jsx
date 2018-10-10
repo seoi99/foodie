@@ -40,7 +40,7 @@ class BusinessDetails extends React.Component {
       const user = this.props.user;
       const reviewsmap = Object.values(reviews).map((review, idx) => {
         return (
-          <ReviewListItem key={idx} review={review} deleteReview={this.props.deleteReview}/>
+          <ReviewListItem key={idx} review={review} deleteReview={this.props.deleteReview} currentUserId = {this.props.currentUserId}/>
         )
       })
       const images = business.images.map(image => <img src={image.img_url} key={image.id} />);

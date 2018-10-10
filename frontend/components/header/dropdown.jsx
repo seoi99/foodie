@@ -9,7 +9,9 @@ class Dropdown extends React.Component {
   }
 
   render() {
+
     const businesses = this.props.businesses;
+    const bizCat = ["Japanese", "Korean", "Delivery", "Salad"]
     const bizArr = Object.values(businesses).map((biz, idx) => {
       if (this.props.searchtxt !== "") {
         if (biz.business_name.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
@@ -19,16 +21,17 @@ class Dropdown extends React.Component {
             </div>
           )
         }
-         else if (biz.category.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
-          return (
-            <div key={idx} className="biz-dropdown">
-              <option onClick={this.props.updateSearchtxt} value={biz.category}>{biz.category}</option>
-            </div>
-          )
-        }
       }
-
-    });
+      else {
+        bizCat.map((cat, idx) => {
+         return (
+         <div key={idx} className="biz-dropdown">
+           <option onClick={this.props.updateSearchtxt} value={cat}>{cat}</option>
+         </div>
+         )
+       })
+     }
+  })
 
     return(
       <ul>
