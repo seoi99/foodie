@@ -22,15 +22,16 @@ class Dropdown extends React.Component {
           )
         }
       }
-      else {
-        bizCat.map((cat, idx) => {
-         return (
-         <div key={idx} className="biz-dropdown">
-           <option onClick={this.props.updateSearchtxt} value={cat}>{cat}</option>
-         </div>
-         )
-       })
-     }
+     //  else if (this.props.searchtxt === "") {
+     //    debugger
+     //    return(
+     //    bizCat.map((cat, idx) => {
+     //     <div key={idx} className="biz-dropdown">
+     //       <li onClick={this.props.updateSearchtxt}>{cat}</li>
+     //     </div>
+     //   })
+     //   )
+     // }
   })
 
     return(

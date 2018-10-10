@@ -16,6 +16,7 @@ import ReviewFormContainer from './reviews/review_form_container';
 import ReviewEditFormContainer from './reviews/review_edit_form_container';
 import HeaderContainer from './header/header_fixed_container';
 import BizReviewContainer from './write_a_review/biz_review_container';
+import ProfileContainer from './about_me/profile';
 
 const App = () => {
   return(
@@ -25,6 +26,7 @@ const App = () => {
       <AuthRoute exact path="/businesses/login" component={LoginFormContainer} />
       <AuthRoute exact path="/businesses/signup" component={LoginFormContainer} />
       <Route exact path="/reviews" component={BizReviewContainer} />
+      <ProtectedRoute exact path="/profile" component={ProfileContainer} />
 
       <Route exact path="/" component={MainComponent} />
       <Route exact path="/users" component={MainComponent} />

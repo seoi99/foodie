@@ -79,7 +79,7 @@ class MainPage extends React.Component {
                   <li>Manhatten, New York, NY</li>
                 </div>
               </div>
-              <li className="about-me">About Me</li>
+              <li className="about-me"><Link to="/profile">About Me</Link></li>
               <li onClick={this.handleClick}>Logout</li>
             </ul>
           </div>

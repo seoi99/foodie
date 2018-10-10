@@ -69,13 +69,13 @@ nav {
   color: grey;
 }
 
-.signup-links a:last-child {
-  text-decoration: none;
-  color: white;
-  border: 2px solid #fff;
-  border-radius: 4px;
-  padding: 7px 24px 8px;
-}
+// .signup-links a:last-child {
+//   text-decoration: none;
+//   color: white;
+//   border: 2px solid #fff;
+//   border-radius: 4px;
+//   padding: 7px 24px 8px;
+// }
 
 .signup-links > a:last-child:hover {
   color: #666;
@@ -195,9 +195,19 @@ nav {
   margin: 5px 10px;
 }
 
+
+
+.signup-links li a {
+  color: #0073bb;
+  margin: 0;
+  padding: 0;
+}
+
 .lists > li:hover {
+  position: relative;
   cursor: pointer;
 }
+
 
 .user-details {
   display: flex;
@@ -206,7 +216,7 @@ nav {
 }
 
 
-.user-details li {
+.user-details li, .user-details li a {
   color: #0073bb;
   font-weight: bold;
   font-size: 13px;

@@ -263,18 +263,6 @@ a {
   margin-right: 5px;
 }
 
-.lists > li {
-  display: block;
-  position: relative;
-  text-transform: capitalize;
-  color: #0073bb;
-  margin: 5px 10px;
-}
-
-.lists > li:hover {
-  cursor: pointer;
-}
-
 .user-details {
   display: flex;
   flex-direction: column;
