@@ -1,4 +1,6 @@
 import React from 'react';
+import Footer  from '../footer/footer';
+
 import { withRouter, Link } from 'react-router-dom';
 
 class ReviewForm extends React.Component {
@@ -84,6 +86,7 @@ class ReviewForm extends React.Component {
           </div>
           <input type="submit" value={formtype}/>
         </form>
+        <Footer />
       </div>
       )
   }

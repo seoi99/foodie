@@ -1,16 +1,17 @@
-  import React from 'react';
+import React from 'react';
 import HeaderContainer from '../header/header_fixed_container';
 import {Link} from 'react-router-dom';
 import GoogleMap from '../business_map/google_map';
 import ReviewListItem from '../reviews/review_list_items';
+import Footer  from '../footer/footer';
+
 
 class BusinessDetails extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestBusiness(this.props.businessId);
   }
 
@@ -163,7 +164,7 @@ class BusinessDetails extends React.Component {
               </ul>
           </div>
           </div>
-
+          <Footer />
         </div>
       );
     }

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Header from './header_fixed';
 import { logout } from '../../actions/session_actions';
 import { updateFilter } from '../../actions/filter_actions';
-import {getSelectedBusinesses} from '../../actions/business_actions'
+import {requestAllBusinesses, getSelectedBusinesses} from '../../actions/business_actions'
 
 const mapStateToProps = state => {
 
@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
     getSelectedBusinesses: (data, searchtxt) => dispatch(getSelectedBusinesses(data, searchtxt)),
-    requestAllBusinesses: (data) => dispatch(requestAllBusinesses(data)),
+    requestAllBusinesses: () => dispatch(requestAllBusinesses()),
 
   };
 };

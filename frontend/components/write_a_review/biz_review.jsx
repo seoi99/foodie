@@ -4,13 +4,13 @@ import HeaderContainer from '../header/header_fixed_container';
 class BusinessReivew extends React.Component {
   constructor(props) {
     super(props)
-  }
-  componentDidMount() {
     this.props.requestAllBusinesses();
   }
+  componentDidMount() {
+  }
   render() {
-    if (this.props.businesses) {
       const businesses = this.props.businesses
+
       return(
         <div>
           <HeaderContainer/>
@@ -19,13 +19,18 @@ class BusinessReivew extends React.Component {
           <p>Review your favorite businesses and share your experiences with our community. Need a little help getting started? Check out these tips.</p>
           <img src="./assets/yelp_review_img.png"/>
         </div>
+
         <h1>Been to these Businesses Recently?</h1>
         {businesses.map((business,idx) => {
+          const AvgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
+              return <div className="avg-rating-bad" key={idx}></div>
+          });
+
           return(
           <ul key={idx}>
             <img src={business.images[0].img_url} />
             <li>{business.business_name}</li>
-            <li>{business.average_rating}</li>
+            {AvgRateConversion}
             <li>{business.category}</li>
             <li>{business.full_address}</li>
             <button>Write a Review</button>
@@ -34,11 +39,6 @@ class BusinessReivew extends React.Component {
         })}
         </div>
       )
-    } else {
-      return(
-        <h1></h1>
-      )
-    }
   }
 
 }

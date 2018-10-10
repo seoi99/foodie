@@ -39,14 +39,17 @@ a {
   padding-left: 2px;
 }
 
-.input-box {
+.input-box form{
   display: flex;
   justify-content: center;
+}
+
+.headerfix {
   height: 33px;
 }
 
 .input-main .input-box, .input-main .input-box button{
-  height: 45px;
+  height: 47px;
   font-size: 20px;
 }
 
@@ -56,23 +59,23 @@ a {
   padding: 8px 12px;
   font-weight: bold;
   color: #333;
+  // height: 33px;
 }
 
 .input-main .input-box label{
-    padding: 10px 12px;
 }
 
 .input-box label:first-of-type {
-  border-radius: 5px 0 0 5px;
+  border-radius: 3px 0 0 3px;
 }
 
 .input-box label > input {
+  // height: 25px;
   border: none;
   border-radius: none;
   background-color: inherit;
-  height: inherit;
   box-sizing: border-box;
-  width: 263px;
+  min-width: 263px;
   font-size: inherit;
   margin-left: 5px;
   outline: none;
@@ -94,7 +97,7 @@ a {
 
 .input-box button {
   width: 50px;
-  height: 33px;
+  height: 35px;
   border: none;
   background-color: #bd1f1f;
 }
@@ -343,4 +346,26 @@ button {
 .fa {
   margin: auto 0;
   color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  margin: 4px -12px;
+  border-top: 1px solid #e6e6e6;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-radius: 0px 0px 5px 5px;
+  font-family: inherit;
+  font-weight: 400;
+}
+.biz-dropdown {
+  padding: 5px;
+}
+.biz-dropdown:hover {
+  border-radius: 0px 0px 5px 5px;
+  background-color: #0073bb;
 }

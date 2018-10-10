@@ -28,7 +28,6 @@ export const receiveSelectedBusinesses = (businesses, searchtxt) => {
 }
 
 export const getSelectedBusinesses = (data, searchtxt) => {
-
   return (dispatch) => {
     BusinessApiUtil.fetchAllBusinesses(data).then((businesses) => {
       dispatch(receiveSelectedBusinesses(businesses, searchtxt));

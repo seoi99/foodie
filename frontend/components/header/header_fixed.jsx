@@ -1,16 +1,19 @@
 import React from 'react';
+import Dropdown from './dropdown';
 import {Link, withRouter} from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {active: false, searchtxt: ""};
+    super(props)
+    this.state = {active: false, searchtxt: "", dropdown: "hidden"};
     this.toggleClass = this.toggleClass.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
+    this.clicked = this.clicked.bind(this);
+
   }
 
   handleClick(e) {
@@ -22,8 +25,9 @@ class Header extends React.Component {
     this.setState({active: !currentState});
   }
   handleChange(e) {
-    this.setState({searchtxt: e.currentTarget.value})
+    this.setState({searchtxt: e.currentTarget.value});
   }
+
   navigateToIndex() {
     this.props.history.push(`/businesses`)
   }
@@ -36,9 +40,13 @@ class Header extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.getSelectedBusinesses(this.props.businesses, this.state.searchtxt)
+    this.setState({dropdown: "hidden"});
     this.navigateToIndex();
   }
 
+  clicked() {
+    this.setState({dropdown:"show"})
+  }
 
   render() {
     let toggle = "hide-dropdowns";
@@ -83,15 +91,22 @@ class Header extends React.Component {
         <Link to="/">Foodie</Link>
 
           <div className="input-box">
-            <form onSubmit={this.handleSubmit}>
-            <label>Find
-              <input type="text" placeholder="korean, japanese, salad ..." onChange={this.handleChange} value={this.state.searchtxt} />
-            </label>
-            <label>Near
-              <input type="text" placeholder="location..."/>
-            </label>
-            <button type="submit" value="" className="magify"/>
+            <form className="headerfix" onSubmit={this.handleSubmit}>
+              <label className="lab-flex">Find
+                <input type="text" placeholder="korean, japanese, salad ..."
+                  onChange={this.handleChange} value={this.state.searchtxt}
+                  onClick={this.clicked} onKeyDown={this.keydown}
+                   />
+                <div className={this.state.dropdown}>
+                  <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange}/>
+                </div>
+              </label>
+              <label>Near
+                <input type="text" placeholder="location..."/>
+              </label>
+              <button type="submit" value="" className="magify"/>
             </form>
+
           </div>
           {signup}
       </div>
@@ -105,7 +120,10 @@ class Header extends React.Component {
             <input type="button" value="Japanese" onClick={this.handleButtonClick} />
             <input type="button" value="Korean" onClick={this.handleButtonClick} />
           </ul>
+
           <Link to="/">Write a Review</Link>
+        </div>
+        <div>
         </div>
     </div>
     </div>
