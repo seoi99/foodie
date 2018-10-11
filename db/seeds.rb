@@ -122,6 +122,17 @@ Business.create!(
   price: 10
 )
 
+Business.create!(
+  business_name: "ShakeShack",
+  full_address: "335 W 37th St, New York, NY 10018",
+  latitude: 40.754948,
+  longitude: -73.993705,
+  phone_number: "(646) 202-9715",
+  category: "Fast Food",
+  website: "http://shakeshack.com",
+  price: 10
+)
+
 
 Review.create!(
   user_id: 4,
