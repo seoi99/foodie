@@ -22,7 +22,15 @@ const BusinessIndexItem = ({business, num}) => {
       } else {
         return symb;}
   }}
-  const body = business.reviews.length > 0 ? business.reviews[0].body : "";
+  let body = business.reviews.length > 0 ? business.reviews[0].body : "";
+  if (body.length > 100) {
+    for (var i = 100; i < body.length; i++) {
+      if (body[i] === " ") {
+        break
+      }
+    }
+    body = `${body.slice(0,i)} ...`
+  }
   return(
     <li className="index-li">
       <ul className="img-list">

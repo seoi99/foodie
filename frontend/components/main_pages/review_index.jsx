@@ -2,6 +2,14 @@
 import React from 'react';
 
 const ReviewIndex = ({review, currentUserId}) => {
+  if (review.body.length > 100) {
+    for (var i = 100; i < review.body.length; i++) {
+      if (review.body[i] === " ") {
+        break
+      }
+    }
+    review.body = `${review.body.slice(0,i)} ...`
+  }
   const RateConversion = Array.from(Array(5).keys()).map((val, idx) => {
     if (idx + 1 <= review.rating) {
       return <div className="avg-rating" key={idx}></div>

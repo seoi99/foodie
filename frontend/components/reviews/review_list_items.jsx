@@ -13,7 +13,7 @@ class ReviewListItem extends React.Component {
 
       let deleteButton;
         if (this.props.currentUserId === this.props.review.user_id) {
-          deleteButton = <button onClick={() => this.props.deleteReview()}></button>
+          deleteButton = <button onClick={() => this.props.deleteReview(review.id)}></button>
         }
 
 

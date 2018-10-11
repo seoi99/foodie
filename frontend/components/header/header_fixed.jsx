@@ -122,7 +122,7 @@ class Header extends React.Component {
             <input type="button" value="Korean" onClick={this.handleButtonClick} />
           </ul>
 
-          <Link to="/">Write a Review</Link>
+          <Link to="/reviews">Write a Review</Link>
         </div>
         <div>
         </div>

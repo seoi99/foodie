@@ -23,7 +23,7 @@ class Dropdown extends React.Component {
         }
       }
      //  else if (this.props.searchtxt === "") {
-     //    debugger
+     //    
      //    return(
      //    bizCat.map((cat, idx) => {
      //     <div key={idx} className="biz-dropdown">

@@ -23,9 +23,10 @@ class GoogleMap extends React.Component {
     super(props);
   }
   componentDidMount() {
+
     const map = this.refs.map;
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this), this.props.singleBusiness);
     if (this.props.singleBusiness) {
       this.MarkerManager.createMarkerFromBusiness(this.props.business);
     } else {
