@@ -111,6 +111,17 @@ Business.create!(
   price: 14
 )
 
+Business.create!(
+  business_name: "La Gusto Pizza",
+  full_address: "382 8th Ave New York, NY 10001",
+  latitude: 40.749255,
+  longitude: -73.995443,
+  phone_number: "(646) 438-9200",
+  category: "Pizza, Delivery",
+  website: "http://lagusto.yolasite.com",
+  price: 10
+)
+
 
 Review.create!(
   user_id: 4,
