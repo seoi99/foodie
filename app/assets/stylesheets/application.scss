@@ -42,21 +42,25 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  width: 996px;
+  width: 69.77%;
+  min-width: 600px;
   margin: 0 auto;
 }
 .nav-links a, .signup-links a, .signup-links button, .main-logo a {
   box-sizing: border-box;
   height: 36px;
   text-decoration: none;
-  padding: 10px;
+  padding: 7px 10px;
   color: white;
   font-weight: 700;
   text-align: center;
   margin-top: 36px;
   margin-left: 15px;
 }
-
+.signup-links a:last-of-type {
+  border: 2px solid white;
+  border-radius: 4px;
+}
 
 .signup-links button {
   color: black;
@@ -127,6 +131,9 @@ nav {
   width: 20px;
   height: 38px;
   background: rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .dropdown:hover, .hide-dropdown:hover{
@@ -137,36 +144,33 @@ nav {
   background: rgba(0,0,0,0.45);
 }
 
+
+.dropdown::before, .hide-dropdown::after {
+  content: "\f0d7";
+  font-family: FontAwesome;
+  color: white;
+  font-size: 10px;
+  padding-right: 2px;
+}
+
+.dropdown ul {
+  min-width: 220px;
+  min-height: 135px;
+  z-index: 1;
+  background: white;
+  margin-top: 27px;
+  border-radius: 5px;
+  box-shadow: -1px 4px 6px 2px rgba(0,0,0,0.09);
+}
+
 .dropdown-triangle {
-  position: absolute;
-  display: inline-block;
-  top: 73px;
-  right: 241px;
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 7px solid white;
-}
-.dropdown::after, .hide-dropdown::after {
-  content: "\f0d7";
-  font-family: FontAwesome;
-  color: white;
-  font-size: 10px;
-  text-align: center;
-}
-
-.dropdown ul {
-  position: absolute;
-  display: block;
-  width: 220px;
-  height: 135px;
-  z-index: 1;
-  background: white;
-  top: 80px;
-  right: 220px;
-  border-radius: 5px;
-  box-shadow: -1px 4px 6px 2px rgba(0,0,0,0.09);
+  margin-top: -7px;
+  margin-left: 190px;
 }
 
 .about-me {
@@ -184,9 +188,6 @@ nav {
   margin-right: 5px;
 }
 
-.lists {
-  position: relative;
-}
 .lists > li {
   display: block;
   position: relative;
@@ -365,9 +366,13 @@ nav {
 .login-form .signin-input-1-2 input {
   box-sizing: border-box;
   width: 49%;
-
 }
 
+.input-main {
+  width: 960px;
+  min-width: 700px;
+  margin: 0 auto;
+}
 .birthday {
   text-align: left;
   flex-wrap: wrap;

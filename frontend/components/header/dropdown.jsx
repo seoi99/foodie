@@ -1,38 +1,51 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {requestAllBusinesses} from '../../actions/business_actions'
+import {Link, withRouter} from 'react-router-dom';
+import {getSelectedBusinesses} from '../../actions/business_actions'
 
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.keyevent = this.keyevent.bind(this);
+  }
+
+  
+  handleButtonClick(e) {
+    e.preventDefault();
+    this.props.getSelectedBusinesses(this.props.businesses,e.target.innerText);
+  }
+  keyevent(e) {
+    if (this.state.bkey) {
+      console.log("hitting man");
+    }
   }
 
   render() {
-
     const businesses = this.props.businesses;
-    const bizCat = ["Japanese", "Korean", "Delivery", "Salad"]
-    const bizArr = Object.values(businesses).map((biz, idx) => {
+    const bizCat = ["Japanese", "Korean", "Delivery","Fast Food", "Salad"]
+    let bizArr = Object.values(businesses).map((biz, idx) => {
       if (this.props.searchtxt !== "") {
         if (biz.business_name.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
           return (
-            <div key={idx} className="biz-dropdown">
+            <div key={idx} className="biz-dropdown" onKeyDown={this.keyevent}>
               <li><Link to={`/businesses/${biz.id}`}>{biz.business_name}</Link></li>
             </div>
           )
         }
       }
-     //  else if (this.props.searchtxt === "") {
-     //    
-     //    return(
-     //    bizCat.map((cat, idx) => {
-     //     <div key={idx} className="biz-dropdown">
-     //       <li onClick={this.props.updateSearchtxt}>{cat}</li>
-     //     </div>
-     //   })
-     //   )
-     // }
   })
+
+  if (this.props.searchtxt === "") {
+    bizArr = bizCat.map((biz, idx) => {
+
+      return  (
+        <div key={idx} className="biz-dropdown">
+          <li onClick={this.handleButtonClick}><Link to="/businesses">{biz}</Link></li>
+        </div>
+      )
+    })
+  }
 
     return(
       <ul>
@@ -50,7 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestAllBusinesses: () => dispatch(requestAllBusinesses())
+    getSelectedBusinesses: (data, searchtxt) => dispatch(getSelectedBusinesses(data, searchtxt)),
   }
 }
 

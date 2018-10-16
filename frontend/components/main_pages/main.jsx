@@ -70,18 +70,18 @@ class MainPage extends React.Component {
       <div className="signup-links">
           <div className="user-icon" onClick={this.toggleClass}></div>
           <div className={toggle} onClick={this.toggleClass}>
-            <div className="dropdown-triangle"></div>
-            <ul className="lists">
-              <div className="profile">
-                <div className="profile-icon"></div>
-                <div className="user-details">
-                  <li>{this.props.currentUser.firstname} {this.props.currentUser.lastname[0]}.</li>
-                  <li>Manhatten, New York, NY</li>
+              <ul className="lists">
+                <div className="dropdown-triangle"></div>
+                <div className="profile">
+                  <div className="profile-icon"></div>
+                  <div className="user-details">
+                    <li>{this.props.currentUser.firstname} {this.props.currentUser.lastname[0]}.</li>
+                    <li>Manhatten, New York, NY</li>
+                  </div>
                 </div>
-              </div>
-              <li className="about-me"><Link to="/profile">About Me</Link></li>
-              <li onClick={this.handleClick}>Logout</li>
-            </ul>
+                <li className="about-me"><Link to="/profile">About Me</Link></li>
+                <li onClick={this.handleClick}>Logout</li>
+              </ul>
           </div>
       </div>
       )
@@ -122,13 +122,13 @@ class MainPage extends React.Component {
         <div className="input-main">
           <div className="input-box">
             <form onSubmit={this.handleSubmit}>
-            <label>Find
+            <label><p>Find</p>
               <input type="text" placeholder="korean, japanese, salad..." onChange={this.handleChange} value={this.state.searchtxt} onClick={this.clicked}/>
               <div className={this.state.dropdown}>
                 <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
               </div>
             </label>
-            <label>Near
+            <label><p>Near</p>
               <input type="text" placeholder="location..."/>
             </label>
             <button type="submit" value="" className="magify"/>

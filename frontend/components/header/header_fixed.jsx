@@ -1,11 +1,11 @@
-import React from 'react';
+  import React from 'react';
 import Dropdown from './dropdown';
 import {Link, withRouter} from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {active: false, searchtxt: "", dropdown: "hidden"};
+    this.state = {active: false, searchtxt: "", dropdown: "hidden", bkey: false};
     this.toggleClass = this.toggleClass.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -13,7 +13,7 @@ class Header extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
     this.clicked = this.clicked.bind(this);
-
+    this.keydown = this.keydown.bind(this);
   }
 
   handleClick(e) {
@@ -45,10 +45,22 @@ class Header extends React.Component {
     this.navigateToIndex();
   }
 
-  clicked() {
-    this.setState({dropdown:"show"})
+  clicked(e) {
+      this.setState({dropdown:"show"})
   }
 
+  keydown(e) {
+    if (e.keyCode === 40) {
+      debugger
+      var nextInput = inputs.get(inputs.index(this) + 1);
+      if (nextInput) {
+         nextInput.focus();
+      }
+    }
+    else if (e.keyCode === 9) {
+      console.log( e.currentTarget )
+    }
+  }
   render() {
     let toggle = "hide-dropdowns";
     if (this.state.active === true) {
@@ -61,8 +73,8 @@ class Header extends React.Component {
           <div className="signup-links">
               <div className="user-icons" onClick={this.toggleClass}></div>
               <div className={toggle} onClick={this.toggleClass}>
-                <div className="dropdown-triangle"></div>
                 <ul className="lists">
+                  <div className="dropdown-triangle"></div>
                   <div className="profile">
                     <div className="profile-icon"></div>
                     <div className="user-details">
@@ -93,16 +105,19 @@ class Header extends React.Component {
 
           <div className="input-box">
             <form className="headerfix" onSubmit={this.handleSubmit}>
-              <label className="lab-flex">Find
+              <label className="lab-flex">
+                <p>Find</p>
                 <input type="text" placeholder="korean, japanese, salad ..."
                   onChange={this.handleChange} value={this.state.searchtxt}
-                  onClick={this.clicked}
+                  onClick={this.clicked} onKeyDown={this.keydown}
                    />
-                <div className={this.state.dropdown}>
-                  <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
+
+                 <div className={this.state.dropdown}>
+                  <Dropdown bkey={this.state.bkey} searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
                 </div>
               </label>
-              <label>Near
+              <label>
+                <p>Near</p>
                 <input type="text" placeholder="location..."/>
               </label>
               <button type="submit" value="" className="magify"/>

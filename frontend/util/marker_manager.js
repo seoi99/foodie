@@ -1,5 +1,3 @@
-var labelIndex = "0";
-
 
 export default class MarkerManager {
   constructor(map, handleClick, single) {
@@ -20,6 +18,7 @@ export default class MarkerManager {
 
     Object.keys(this.markers).filter(businessId => !businessesObj[businessId])
     .forEach((businessId) => this.removeMarker(this.markers[businessId]));
+    this.label = 1;
   }
 
   createMarkerFromBusiness(business) {
