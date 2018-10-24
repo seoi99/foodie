@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    this.props.login({username:"asdasd", password:"asdasd"});
+    this.props.login({username:"guest", password:"asdasd"});
   }
 
   update(field) {

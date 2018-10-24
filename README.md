@@ -6,8 +6,8 @@
 
 * Foodie is single-page application inspired by Yelp.
 It is full-stack application that uses
- Ruby on the rails as a backend to store data,
-uses JQuery, React, Redux as a frontend framework to interact with user's  preference over Food.
+ Ruby on rails as a backend to store data,
+uses JQuery, React, Redux as a frontend framework to interact with user's preferences about Food.
 
 Please feel free to take a look at my website!
 
@@ -25,7 +25,7 @@ Please feel free to take a look at my website!
 
 
 ### Google Map API
-* User will be enable see marker on the map, and once user click's on marker it will navigate direction.
+* Users will be able see marker on the map, and once user click's on marker it will navigate direction.
 * create marker based on business lat, lng information from props that can be retrieved from business details component
 * once it has been received, place marker on current map
 
@@ -70,7 +70,7 @@ handleMarkerClick(business) {
 
 ``` ruby
 def destroy
-  @review = current_user.reviews.find(params[:id])
+  @review = Review.find(params[:id])
   @review.destroy
   render :show
 end
