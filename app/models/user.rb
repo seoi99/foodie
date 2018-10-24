@@ -25,7 +25,6 @@ class User < ApplicationRecord
   has_many :reviews
 
   after_initialize :ensure_session_token
-  attr_accessor :username
   attr_reader :password
 
   def is_password?(password)
