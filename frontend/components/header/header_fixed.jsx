@@ -51,7 +51,6 @@ class Header extends React.Component {
 
   keydown(e) {
     if (e.keyCode === 40) {
-      debugger
       var nextInput = inputs.get(inputs.index(this) + 1);
       if (nextInput) {
          nextInput.focus();
