@@ -7,6 +7,7 @@ class Api::ReviewsController < ApplicationController
   # do we need index action? b/c once we create our review, it will be inside of business show page not in our review index backend
 
   def index
+
     @reviews = Review.all
   end
   def create

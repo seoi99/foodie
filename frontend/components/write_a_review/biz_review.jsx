@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import HeaderContainer from '../header/header_fixed_container';
+import LoadingIcon from './loading_icon';
 import Footer  from '../footer/footer';
 
 class BusinessReivew extends React.Component {
@@ -12,10 +13,12 @@ class BusinessReivew extends React.Component {
   }
   render() {
       const businesses = this.props.businesses
-
+      const load = () => {if (this.props.loading) {
+         return <LoadingIcon/>
+       }}
       return(
         <div>
-          <HeaderContainer/>
+          <HeaderContainer loading={this.props.loading}/>
         <div className="yelp-write">
           <div className="write">
             <h2>Your Next Review awaits</h2>
@@ -25,6 +28,7 @@ class BusinessReivew extends React.Component {
         </div>
         <h1 className="h1-rev-head">Been to these Businesses Recently?</h1>
         <div className="review-content">
+          {load()}
         {businesses.map((business,idx) => {
           const AvgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
               return <div className="avg-rating-bad" key={idx}></div>

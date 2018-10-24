@@ -1,4 +1,4 @@
-  import * as BusinessApiUtil from '../util/business_api_util';
+import * as BusinessApiUtil from '../util/business_api_util';
 
 export const RECEIVE_ALL_BUSINESSES = 'RECEIVE_ALL_BUSINESSES';
 export const RECEIVE_SELECTED_BUSINESSES = 'RECEIVE_SELECTED_BUSINESSES';
@@ -7,6 +7,7 @@ export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_ALL_REVIEW = 'RECEIVE_ALL_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 export const RECEIVE_REVIEW_ERROR = 'RECEIVE_REVIEW_ERROR';
+export const START_LOADING_REVIEW_INDEX = 'START_LOADING_REVIEW_INDEX';
 
 export const receiveAllBusinesses = (payload) => ({
   type: RECEIVE_ALL_BUSINESSES,
@@ -41,12 +42,11 @@ export const receiveBusiness = (payload) => ({
   payload,
 });
 
-export const requestAllBusinesses = (filter) => {
-  return (dispatch) => {
-    BusinessApiUtil.fetchAllBusinesses(filter).then((payload) => {
+export const requestAllBusinesses = (filter) => (dispatch) => {
+    dispatch(startLoadingReviewIndex());
+    return BusinessApiUtil.fetchAllBusinesses(filter).then((payload) => {
       dispatch(receiveAllBusinesses(payload));
     });
-  };
 };
 
 export const requestBusiness = (id) => {
@@ -73,6 +73,13 @@ export const receivewAllReviews = (reviews) => {
   }
 }
 
+export const startLoadingReviewIndex = () => {
+  return {
+    type: START_LOADING_REVIEW_INDEX
+  }
+}
+
+// ui testing
 export const requestAllReviews = () => dispatch => {
   return BusinessApiUtil.fetchAllReviews().then(reviews => (
     dispatch(receivewAllReviews(reviews))

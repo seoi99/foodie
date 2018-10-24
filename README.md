@@ -26,7 +26,7 @@ Please feel free to take a look at my website!
 
 ### Google Map API
 * Users will be able see marker on the map, and once user click's on marker it will navigate direction.
-* create marker based on business lat, lng information from props that can be retrieved from business details component
+* "creates a marker based on the latitude and longitude of the business
 * once it has been received, place marker on current map
 
 
