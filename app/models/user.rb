@@ -19,11 +19,10 @@
 class User < ApplicationRecord
   validates :username, :password_digest, :session_token, :firstname, :lastname, :zipcode, presence: true
   validates :username, :session_token, uniqueness: true
-  validates :password, length: {minimum: 6}, allow_nil: true
+  # validates :password, length: {minimum: 6}, allow_nil: true
   validates :zipcode, length: {minimum: 5, maximum: 5, allow_nil: true}
 
   has_many :reviews
-  has_one_attached :photo
 
   after_initialize :ensure_session_token
   attr_reader :password
