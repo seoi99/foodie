@@ -17,10 +17,12 @@ import ReviewEditFormContainer from './reviews/review_edit_form_container';
 import HeaderContainer from './header/header_fixed_container';
 import BizReviewContainer from './write_a_review/biz_review_container';
 import ProfileContainer from './about_me/profile';
+import Modal from './modal/modal';
 
 const App = () => {
   return(
     <div>
+      <Modal />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/businesses/login" component={LoginFormContainer} />

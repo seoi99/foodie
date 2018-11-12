@@ -1,18 +1,7 @@
-import {RECEIVE_ALL_BUSINESSES, START_LOADING_REVIEW_INDEX} from '../actions/business_actions';
+import { combineReducers } from 'redux';
+import modals from './modal_reducer';
 
-const initialState = {
-  ReviewIndexLoading: false,
-};
 
-const uiReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case RECEIVE_ALL_BUSINESSES:
-      return Object.assign({}, state, {ReviewIndexLoading: false})
-    case START_LOADING_REVIEW_INDEX:
-      return Object.assign({}, state, {ReviewIndexLoading: true})
-    default:
-      return state
-  }
-}
-
-export default uiReducer
+export default combineReducers({
+  modals,
+});

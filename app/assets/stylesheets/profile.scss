@@ -24,8 +24,26 @@
   width: 215px;
   height: 215px;
   margin: 0;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
 }
 
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .picture-form {
   width: 215px;
   height: 215px;

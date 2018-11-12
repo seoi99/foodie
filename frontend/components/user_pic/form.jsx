@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 
-export default class PicForm extends React.Component {
+class PicForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,8 +31,8 @@ export default class PicForm extends React.Component {
       formData.append('user_picture[photo]', this.state.photoFile);
     }
     this.props.uploadPicture(formData)
+    this.props.closeModal();
   }
-
 
 
   render() {
@@ -47,3 +49,13 @@ export default class PicForm extends React.Component {
     )
   }
 }
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    uploadPicture: (formData) => dispatch(uploadPicture(formData)),
+    closeModal: () => dispatch(closeModal())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(PicForm)
