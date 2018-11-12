@@ -2,12 +2,35 @@
 .prof-header {
   font-size: 30px;
   background: #f5f5f5;
+  display: flex;
   border-bottom: 1px solid #e6e6e6;
   text-align: center;
   text-transform: capitalize;
   margin-bottom: 30px;
+  // width: 70%;
+  margin: 0 auto;
+  padding: 0 15%;
 }
 
+.prof-header > *{
+  padding-right: 50px;
+}
+
+.prof-header h1 {
+  padding-top: 100px;
+  font-weight: 700;
+}
+.prof-image img, .picture-form img {
+  width: 215px;
+  height: 215px;
+  margin: 0;
+}
+
+.picture-form {
+  width: 215px;
+  height: 215px;
+  box-sizing: border-box;
+}
 .prof-body {
   // display: block;
   width: 500px;

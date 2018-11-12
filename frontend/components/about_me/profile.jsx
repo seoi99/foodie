@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {requestAllReviews} from '../../actions/business_actions';
 import HeaderContainer from '../header/header_fixed_container';
+import UserPicContainer from '../user_pic/user_pic_container';
 import Footer  from '../footer/footer';
 
 class Profile extends React.Component{
@@ -40,13 +41,15 @@ class Profile extends React.Component{
       <div>
         <HeaderContainer/>
         <div className="prof-header">
+          <UserPicContainer/>
           <h1>{firstname} {lastname}</h1>
         </div>
-      <ul className="prof-body">
-        <h1>Your Recent Activity </h1>
-        Total # of Reviews: {count}
-        {reviews}
-      </ul>
+
+        <ul className="prof-body">
+          <h1>Your Recent Activity </h1>
+          Total # of Reviews: {count}
+          {reviews}
+        </ul>
       <Footer/>
     </div>
     )

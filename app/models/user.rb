@@ -23,7 +23,8 @@ class User < ApplicationRecord
   validates :zipcode, length: {minimum: 5, maximum: 5, allow_nil: true}
 
   has_many :reviews
-  has_one_attached :photo
+  has_one :user_picture
+
 
   after_initialize :ensure_session_token
   attr_reader :password
@@ -33,7 +34,7 @@ class User < ApplicationRecord
   end
 
 
-  def password=(password)
+  def password= (password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end

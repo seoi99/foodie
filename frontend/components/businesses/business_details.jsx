@@ -15,6 +15,9 @@ class BusinessDetails extends React.Component {
     this.props.requestBusiness(this.props.businessId);
   }
 
+  componentDidUpdate() {
+  }
+
   render() {
       const currentDate = new Date();
       const currentDay = Date().slice(0,3);

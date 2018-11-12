@@ -22,3 +22,9 @@ export const logout = () => {
     url: '/api/session'
   });
 };
+
+export const fetchImage = () => {
+  return $.ajax({
+    url: "api/user_pictures"
+  })
+}

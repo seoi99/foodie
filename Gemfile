@@ -27,6 +27,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'annotate'
 gem 'pry-rails'
 gem "figaro"
+
+gem "aws-sdk-s3", require: false
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -115,9 +115,8 @@ export const updateReview = review => dispatch => {
 
 export const deleteReview = id => dispatch => {
 
-  return BusinessApiUtil.deleteReview(id).then(review => (
-    dispatch(removeReview(review))
-  ), (error) => {
-    dispatch(receiveReviewErrors(error.responseJSON))
-  })
+  return BusinessApiUtil.deleteReview(id).then(
+    (review) => {
+      dispatch(removeReview(review))}
+  )
 };
