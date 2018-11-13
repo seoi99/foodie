@@ -17,29 +17,32 @@ export const removePhoto = (photo) => ({
   photo
 });
 
-export const photoError = (errors) => ({
+export const photoError = (errors) => {
+  
+  return {
   type: PHOTO_ERROR,
-  errors
-});
+  errors: errors.errors
+  }
+};
 
 
 export const requestPhoto = (id) => (dispatch) => {
   PhotoUtil.fetchPicture(id).then(
     (photo) => dispatch(receivePhoto(photo)),
-    (error) => dispatch(photoError(error))
+    (errors) => dispatch(photoError(errors))
   )
 }
 
 export const uploadPicture = (formData) => (dispatch) => {
   PhotoUtil.uploadPicture(formData).then(
     (photo) => dispatch(receivePhoto(photo)),
-    (error) => dispatch(photoError(error))
+    (errors) => dispatch(photoError({errors: "no photo found"}))
   )
 }
 
 export const deletePhoto = (id) => (dispatch) => {
   PhotoUtil.deletePicture(id).then(
     (photo) => dispatch(removePhoto(photo)),
-    (error) => dispatch(photoError(error))
+    (errors) => dispatch(photoError(errors))
   )
 }

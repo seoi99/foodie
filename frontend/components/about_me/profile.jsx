@@ -36,18 +36,24 @@ class Profile extends React.Component{
     })
     const firstname = this.props.user[this.props.currentUserId].firstname
     const lastname = this.props.user[this.props.currentUserId].lastname
+    const zipcode = this.props.user[this.props.currentUserId].zipcode
 
     return(
       <div>
         <HeaderContainer/>
         <div className="prof-header">
           <UserPicContainer/>
+          <div className="prof-des-flex">
           <h1>{firstname} {lastname}</h1>
+          <h3>Manhatten, New York, NY</h3>
+          <div className="prof-icons">
+            <h3><b>{count}</b> Review</h3>
+          </div>
+          </div>
         </div>
 
         <ul className="prof-body">
           <h1>Your Recent Activity </h1>
-          Total # of Reviews: {count}
           {reviews}
         </ul>
       <Footer/>
@@ -58,6 +64,7 @@ class Profile extends React.Component{
 
 
 const mapStateToProps = (state) => {
+
   return {
     reviews: state.entities.reviews,
     currentUserId: state.session.currentUserId,

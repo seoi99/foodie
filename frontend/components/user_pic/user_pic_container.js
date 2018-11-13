@@ -18,8 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     uploadPicture: (formData) => dispatch(uploadPicture(formData)),
     deletePhoto: (id) => dispatch(deletePhoto(id)),
     openUpload: (
-     <button onClick={() => dispatch(openModal('upload'))}>
-       Upload
+     <button onClick={() => dispatch(openModal('upload'))} className="modal-button">
+       Upload a Photo
      </button>
    ),
    closeModal: () => dispatch(closeModal())

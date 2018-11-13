@@ -13,11 +13,14 @@ class Header extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToIndex = this.navigateToIndex.bind(this);
     this.clicked = this.clicked.bind(this);
-    this.keydown = this.keydown.bind(this);
   }
 
   handleClick(e) {
     return this.props.logout();
+  }
+
+  componentDidMount() {
+      this.props.requestPhoto(this.props.currentUser.id)
   }
 
   toggleClass() {
@@ -49,33 +52,23 @@ class Header extends React.Component {
       this.setState({dropdown:"show"})
   }
 
-  keydown(e) {
-    if (e.keyCode === 40) {
-      var nextInput = inputs.get(inputs.index(this) + 1);
-      if (nextInput) {
-         nextInput.focus();
-      }
-    }
-    else if (e.keyCode === 9) {
-      console.log( e.currentTarget )
-    }
-  }
+
   render() {
     let toggle = "hide-dropdowns";
     if (this.state.active === true) {
       toggle = "dropdowns";
     }
-
+    let img = this.props.photo ? <img className="profile-icon user-icons" src={this.props.photo.photoUrl}/> : <img className="profile-icon user-icons" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png"/>
     let signup;
       if (this.props.currentUser) {
         signup = (
           <div className="signup-links">
-              <div className="user-icons" onClick={this.toggleClass}></div>
+              <div onClick={this.toggleClass}></div>
               <div className={toggle} onClick={this.toggleClass}>
                 <ul className="lists">
                   <div className="dropdown-triangle"></div>
                   <div className="profile">
-                    <div className="profile-icon"></div>
+                    {img}
                     <div className="user-details">
                       <li>{this.props.currentUser.firstname} {this.props.currentUser.lastname[0]}.</li>
                       <li>Manhatten, New York, NY</li>

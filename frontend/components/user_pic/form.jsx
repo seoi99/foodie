@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { uploadPicture } from '../../actions/user_pic_action';
 
 
 class PicForm extends React.Component {
@@ -36,14 +37,14 @@ class PicForm extends React.Component {
 
 
   render() {
-    const preview = this.state.photoUrl ? <img src={this.state.photoUrl}/> : null;
+    const preview = this.state.photoUrl ? <img src={this.state.photoUrl}/> : <img src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png"/>;
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="picture-form">
-          <input type="file"
-            onChange={this.handleFile.bind(this)}/>
           {preview}
-          <input type="submit" value="Submit"/>
+          <input type="file"
+            onChange={this.handleFile.bind(this)} className="file-chose"/>
+          <input type="submit" value="Submit" className="prof-submit"/>
         </form>
       </div>
     )

@@ -1,14 +1,11 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import UserPic from '../user_pic/user_pic';
+import PicForm from '../user_pic/form';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
-    debugger
     return null;
-  } else {
-    debugger
   }
   let component;
   switch (modal) {
@@ -28,12 +25,14 @@ function Modal({modal, closeModal}) {
 }
 
 const mapStateToProps = state => {
+
   return {
-    modal: state.ui.modal
+    modal: state.ui.modals
   };
 };
 
 const mapDispatchToProps = dispatch => {
+
   return {
     closeModal: () => dispatch(closeModal())
   };
