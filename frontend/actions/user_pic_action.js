@@ -4,6 +4,14 @@ export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const PHOTO_ERROR = 'PHOTO_ERROR';
+export const IMAGE_LOADING = 'IMAGE_LOADING'
+
+
+export const imageLoading = () => {
+  return {
+    type: IMAGE_LOADING
+  }
+}
 
 export const receivePhoto = (payload) => {
   return {
@@ -20,7 +28,6 @@ export const receiveAllPhotos = (photos) => {
 };
 
 export const removePhoto = (photo) => {
-  debugger
   return {
   type: REMOVE_PHOTO,
   photo: photo.message
@@ -37,6 +44,7 @@ export const photoError = (errors) => {
 
 
 export const requestPhoto = (id) => (dispatch) => {
+  dispatch(imageLoading());
   PhotoUtil.fetchPicture(id).then(
     (photo) => dispatch(receivePhoto(photo)),
     (errors) => dispatch(photoError(errors))
@@ -51,13 +59,15 @@ export const requestAllPhotos = () => (dispatch) => {
 }
 
 export const uploadPicture = (formData) => (dispatch) => {
+  dispatch(imageLoading());
   PhotoUtil.uploadPicture(formData).then(
     (photo) => dispatch(receivePhoto(photo)),
-    (errors) => dispatch(photoError({errors: "no photo found"}))
+    (errors) => dispatch(photoError({errors: "Please attach a photo"}))
   )
 }
 
 export const deletePhoto = (id) => (dispatch) => {
+  dispatch(imageLoading());
   PhotoUtil.deletePicture(id).then(
     (response) => dispatch(removePhoto(response)),
   )

@@ -8,7 +8,6 @@ class Api::UserPicturesController < ApplicationController
     if @userPicture
       render 'api/user_pictures/show'
     else
-
       render json: {message: "no profile picture yet"}
     end
   end
@@ -20,7 +19,7 @@ class Api::UserPicturesController < ApplicationController
   def create
     @userPicture = UserPicture.new(post_params)
     unless UserPicture.where(user_id: current_user.id).empty?
-      UserPicture.where(user_id: current_user.id).delete_all
+      UserPicture.where(user_id: current_user.id).destroy_all
     end
     @userPicture.user_id = current_user.id
     if @userPicture.save

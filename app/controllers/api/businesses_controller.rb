@@ -1,6 +1,7 @@
 class Api::BusinessesController < ApplicationController
 
   def index
+    sleep 0.5
     @businesses = Business.all
   end
 

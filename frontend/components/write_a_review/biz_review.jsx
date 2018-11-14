@@ -12,10 +12,34 @@ class BusinessReivew extends React.Component {
   componentDidMount() {
   }
   render() {
-      const businesses = this.props.businesses
-      const load = () => {if (this.props.loading) {
-         return <LoadingIcon/>
-       }}
+      let businesses;
+      if (this.props.loading) {
+        businesses = <div className='loading-img'></div>
+      } else {
+        businesses = (
+          this.props.businesses.map((business,idx) => {
+            const AvgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
+                return <div className="avg-rating-bad" key={idx}></div>
+            });
+
+            return(
+            <ul key={idx} className="w-1-row">
+              <div className="w-1-3">
+                <img src={business.images[0].img_url} />
+              </div>
+              <div className="w-2-3">
+                <li><Link to={`businesses/${business.id}`}>{business.business_name}</Link></li>
+                <li>{business.full_address}</li>
+                <div className="review-rrr">
+                  {AvgRateConversion}
+                </div>
+              </div>
+
+            </ul>
+            )
+          })
+        )
+      }
       return(
         <div>
           <HeaderContainer loading={this.props.loading}/>
@@ -28,28 +52,7 @@ class BusinessReivew extends React.Component {
         </div>
         <h1 className="h1-rev-head">Been to these Businesses Recently?</h1>
         <div className="review-content">
-          {load()}
-        {businesses.map((business,idx) => {
-          const AvgRateConversion = Array.from(Array(5).keys()).map((val, idx) => {
-              return <div className="avg-rating-bad" key={idx}></div>
-          });
-
-          return(
-          <ul key={idx} className="w-1-row">
-            <div className="w-1-3">
-              <img src={business.images[0].img_url} />
-            </div>
-            <div className="w-2-3">
-              <li><Link to={`businesses/${business.id}`}>{business.business_name}</Link></li>
-              <li>{business.full_address}</li>
-              <div className="review-rrr">
-                {AvgRateConversion}
-              </div>
-            </div>
-
-          </ul>
-          )
-        })}
+          {businesses}
         </div>
         <Footer/>
         </div>

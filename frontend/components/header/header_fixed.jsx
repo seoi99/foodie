@@ -59,7 +59,7 @@ class Header extends React.Component {
       toggle = "dropdowns";
     }
     let img = this.props.photo ? <img className="profile-icon" src={this.props.photo.photoUrl}/> : <img className="profile-icon" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png"/>
-  let mainImg = this.props.photo ? <img className="user-icons" src={this.props.photo.photoUrl} onClick={this.toggleClass}/> : <img className="user-icons" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png" onClick={this.toggleClass}/>
+    let mainImg = this.props.photo ? <img className="user-icons" src={this.props.photo.photoUrl} onClick={this.toggleClass}/> : <img className="user-icons" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png" onClick={this.toggleClass}/>
     let signup;
       if (this.props.currentUser) {
         signup = (

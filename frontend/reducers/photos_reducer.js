@@ -13,7 +13,9 @@ const photoReducer = (state = {}, action) => {
     case RECEIVE_PHOTO:
       return merge({}, state, action.payload.photo);
     case REMOVE_PHOTO:
-      return state;
+      const deleteState = merge({}, state);
+      delete deleteState[currentUser.id]
+      return deleteState;
     case RECEIVE_ALL_PHOTOS:
       return action.photos
     default:

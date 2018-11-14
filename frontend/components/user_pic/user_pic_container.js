@@ -9,6 +9,8 @@ const mapStateToProps = (state) => {
   return {
     photo: state.entities.photos[state.session.currentUserId],
     userId: state.session.currentUserId,
+    photoError: state.errors.photo,
+    loading: state.ui.photos.loading,
   };
 };
 

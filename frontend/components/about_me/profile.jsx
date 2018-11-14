@@ -9,9 +9,10 @@ import Footer  from '../footer/footer';
 class Profile extends React.Component{
   constructor(props) {
     super(props)
+  }
+  componentDidMount() {
     this.props.requestAllReviews();
   }
-
   render() {
     let count = 0
     const reviews = Object.values(this.props.reviews).map((review, idx) => {
