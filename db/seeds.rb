@@ -11,7 +11,6 @@ Hour.destroy_all
 Image.destroy_all
 Review.destroy_all
 
-
 Business.create!(
   business_name: "Izakaya MEW",
   full_address: "38 W 39th St Midtown West",
