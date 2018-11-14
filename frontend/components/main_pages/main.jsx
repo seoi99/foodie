@@ -56,7 +56,9 @@ class MainPage extends React.Component {
   componentDidMount() {
     this.props.requestAllReviews();
     this.props.requestAllBusinesses();
-    this.props.requestPhoto(this.props.currentUser.id)
+    if (this.props.currentUserId) {
+      this.props.requestPhoto(this.props.currentUser.id)
+    }
   }
 
   render () {
