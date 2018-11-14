@@ -34,7 +34,6 @@ class MainPage extends React.Component {
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value})
     this.props.requestAllBusinesses();
-
   }
 
   handleSubmit(e) {
@@ -57,6 +56,7 @@ class MainPage extends React.Component {
   componentDidMount() {
     this.props.requestAllReviews();
     this.props.requestAllBusinesses();
+    this.props.requestPhoto(this.props.currentUser.id)
   }
 
   render () {
@@ -65,15 +65,17 @@ class MainPage extends React.Component {
       toggle = "dropdown";
     }
     let signinform;
+    let img = this.props.photo ? <img className="profile-icon" src={this.props.photo.photoUrl}/> : <img className="profile-icon" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png"/>
+    let mainImg = this.props.photo ? <img className="user-icon" src={this.props.photo.photoUrl} onClick={this.toggleClass}/> : <img className="user-icon" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png" onClick={this.toggleClass}/>
     if (this.props.currentUser) {
       signinform = (
       <div className="signup-links">
-          <div className="user-icon" onClick={this.toggleClass}></div>
+          {mainImg}
           <div className={toggle} onClick={this.toggleClass}>
               <ul className="lists">
                 <div className="dropdown-triangle"></div>
                 <div className="profile">
-                  <div className="profile-icon"></div>
+                  {img}
                   <div className="user-details">
                     <li>{this.props.currentUser.firstname} {this.props.currentUser.lastname[0]}.</li>
                     <li>Manhatten, New York, NY</li>

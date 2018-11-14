@@ -13,6 +13,10 @@ class Api::UserPicturesController < ApplicationController
     end
   end
 
+  def index
+    @userPictures = UserPicture.all
+  end
+
   def create
     @userPicture = UserPicture.new(post_params)
     unless UserPicture.where(user_id: current_user.id).empty?

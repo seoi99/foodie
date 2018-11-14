@@ -4,10 +4,17 @@ export const fetchPicture = (id) => {
     url:`/api/user_pictures/${id}`
   })
 }
+export const fetchAllPictures = () => {
+
+  return $.ajax({
+    method: "GET",
+    url:`/api/user_pictures`
+  })
+}
 
 
 export const deletePicture = (id) => {
-  $.ajax({
+  return $.ajax({
     method:"DELETE",
     url: `/api/user_pictures/${id}`
   })

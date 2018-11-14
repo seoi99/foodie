@@ -3,17 +3,28 @@ import React from 'react';
 class ReviewListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {photoUrl: null}
+  }
+  componentDidMount(){
+    this.props.requestAllPhotos();
+    
   }
 
   render(){
       const review = this.props.review;
 
-
-      if (review !== undefined) {
-
+      if (review ) {
       let deleteButton;
         if (this.props.currentUserId === this.props.review.user_id) {
           deleteButton = <button onClick={() => this.props.deleteReview(review.id)}></button>
+        }
+        let img = this.props.photos[this.props.review.user_id];
+        let userImg;
+        if (img) {
+          userImg = <img className="user-icon-item" src={img.photoUrl}/>
+        }
+         else {
+          userImg = <img className="user-icon-item" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png"/>
         }
 
 
@@ -24,11 +35,13 @@ class ReviewListItem extends React.Component {
           return <li className="avg-rating-bad" key={idx}></li>
         }
       });
+
+
       return (
         <div className="but-nobut">
         <div className="rev-list-item">
           <div className="rev-user">
-            <div className="user-icon-item"></div>
+            {userImg}
             <li>{review.firstname}</li>
           </div>
           <div className="rev-content">

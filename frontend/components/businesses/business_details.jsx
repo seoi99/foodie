@@ -9,16 +9,26 @@ import Footer  from '../footer/footer';
 class BusinessDetails extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      reviews: 0
+    }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.requestBusiness(this.props.businessId);
   }
 
   componentDidUpdate() {
+    if (this.props.business) {
+      if (this.props.business.reviewIds.length !== this.state.reviews) {
+        this.setState({reviews: this.props.business.reviewIds.length})
+        this.props.requestBusiness(this.props.businessId);
+      }
+    }
   }
 
   render() {
+
       const currentDate = new Date();
       const currentDay = Date().slice(0,3);
       const currentHours = currentDate.getHours();
@@ -43,7 +53,8 @@ class BusinessDetails extends React.Component {
       const user = this.props.user;
       const reviewsmap = Object.values(reviews).map((review, idx) => {
         return (
-          <ReviewListItem key={idx} review={review} deleteReview={this.props.deleteReview} currentUserId = {this.props.currentUserId}/>
+          <ReviewListItem key={idx} review={review} deleteReview={this.props.deleteReview} currentUserId = {this.props.currentUserId} photos = {this.props.photos}
+            requestAllPhotos = {this.props.requestAllPhotos}/>
         )
       })
       const images = business.images.map(image => <img src={image.img_url} key={image.id} />);
