@@ -11,7 +11,7 @@ export const START_LOADING_REVIEW_INDEX = 'START_LOADING_REVIEW_INDEX';
 
 export const receiveAllBusinesses = (payload) => ({
   type: RECEIVE_ALL_BUSINESSES,
-  payload,
+  payload
 });
 
 export const receiveReviewErrors = (errors) => ({
