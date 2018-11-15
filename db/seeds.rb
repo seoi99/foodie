@@ -124,12 +124,12 @@ Business.create!(
 
 
 Review.create!(
-  user_id: 1,
+  user_id: 2,
   business_id: Business.all[rand(9)].id,
   body: "Fast delivery and great price.",
   rating: 3)
 Review.create!(
-  user_id: 1,
+  user_id: 2,
   business_id: Business.all[rand(9)].id,
   body: "Highly recommend this place. Try the pasta and sushi",
   rating: 4)
