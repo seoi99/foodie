@@ -26,7 +26,7 @@ Please feel free to take a look at my website!
 
 ### Google Map API
 * Users will be able see marker on the map, and once user click's on marker it will navigate direction.
-* "creates a marker based on the latitude and longitude of the business
+* creates a marker based on the latitude and longitude of the business
 * once it has been received, place marker on current map
 
 
@@ -45,7 +45,7 @@ createMarkerFromBusiness(business) {
   this.markers[marker.businessId] = marker;
 }
 ```
-* on click, direct user to Google Map that enable user to get direction.
+* on click, direct user to Google Map that enable users to get directions.
 
 ``` javascript
 handleMarkerClick(business) {
@@ -58,9 +58,9 @@ handleMarkerClick(business) {
 
 ### CRUD Functionality
 
-* User can create/edit/delete/update a review
-* user can only create one review per restaurant
-* if user wrote review for restaurant, he/she would be only able to edit review.
+* User can create/edit/delete/update a review.
+* user can only create one review per restaurant.
+* users can edit and delete their reviews only.
 * user will only be able to delete only if he/she is current user.
 
 
