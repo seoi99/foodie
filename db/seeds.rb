@@ -123,36 +123,36 @@ Business.create!(
 )
 
 
-Review.create!(
-  user_id: 2,
-  business_id: Business.all[rand(9)].id,
-  body: "Fast delivery and great price.",
-  rating: 3)
-Review.create!(
-  user_id: 2,
-  business_id: Business.all[rand(9)].id,
-  body: "Highly recommend this place. Try the pasta and sushi",
-  rating: 4)
-Review.create!(
-  user_id: 4,
-  business_id: Business.all[rand(9)].id,
-  body: "best poke in the town, order online to get your food quickly",
-  rating: 5)
-Review.create!(
-  user_id: 2,
-  business_id: Business.all[rand(9)].id,
-  body: "Amazing food, prepared fresh and kind friendly staff.\n\nrecommend to try sushi burrito.",
-  rating: 4)
-Review.create!(
-  user_id: 2,
-  business_id: Business.all[rand(9)].id,
-  body: "food is tasty, but it is too expensive.",
-  rating: 3)
-Review.create!(
-  user_id: 2,
-  business_id: Business.all[rand(9)].id,
-  body: "fast foood!",
-  rating: 2)
+# Review.create!(
+#   user_id: 2,
+#   business_id: Business.all[rand(9)].id,
+#   body: "Fast delivery and great price.",
+#   rating: 3)
+# Review.create!(
+#   user_id: 2,
+#   business_id: Business.all[rand(9)].id,
+#   body: "Highly recommend this place. Try the pasta and sushi",
+#   rating: 4)
+# Review.create!(
+#   user_id: 4,
+#   business_id: Business.all[rand(9)].id,
+#   body: "best poke in the town, order online to get your food quickly",
+#   rating: 5)
+# Review.create!(
+#   user_id: 2,
+#   business_id: Business.all[rand(9)].id,
+#   body: "Amazing food, prepared fresh and kind friendly staff.\n\nrecommend to try sushi burrito.",
+#   rating: 4)
+# Review.create!(
+#   user_id: 2,
+#   business_id: Business.all[rand(9)].id,
+#   body: "food is tasty, but it is too expensive.",
+#   rating: 3)
+# Review.create!(
+#   user_id: 2,
+#   business_id: Business.all[rand(9)].id,
+#   body: "fast foood!",
+#   rating: 2)
 
 japaneseImageMap = Dir.glob("app/assets/images/japanese/*").map do |path|
    "assets/japanese/"+ File.basename(path)
