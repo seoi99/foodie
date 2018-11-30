@@ -27,7 +27,7 @@ amazon_prod:
 # google:
 #   service: GCS
 #   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
+  # api_key: <%= Rails.application.credentials.google[:api_key] %>
 #   bucket: your_own_bucket
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
