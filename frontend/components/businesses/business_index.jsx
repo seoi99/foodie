@@ -14,7 +14,6 @@ class BusinessIndex extends React.Component {
     const businesses = this.props.businesses.map((business, idx) => {
       return <BusinessIndexItem business={business} key={idx} num={idx}/>;
     });
-
       return(
       <div>
         <HeaderContainer businesses={this.props.businesses}/>

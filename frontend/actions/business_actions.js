@@ -37,6 +37,7 @@ export const getSelectedBusinesses = (data, searchtxt) => {
 };
 
 
+
 export const receiveBusiness = (payload) => ({
   type: RECEIVE_BUSINESS,
   payload,

@@ -33,7 +33,7 @@ export default class MarkerManager {
       businessId: business.id,
       label: `${this.label}`
     })
-    this.label += 1;
+    this.label += 1
     marker.addListener('click', () => this.handleClick(business));
     this.markers[marker.businessId] = marker;
   }

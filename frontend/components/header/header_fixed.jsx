@@ -27,9 +27,9 @@ class Header extends React.Component {
     const currentState = this.state.active;
     this.setState({active: !currentState});
   }
+
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value});
-    this.props.requestAllBusinesses();
   }
 
   navigateToIndex() {
@@ -39,6 +39,10 @@ class Header extends React.Component {
     e.preventDefault();
     this.props.getSelectedBusinesses(this.props.businesses, e.target.value)
     this.navigateToIndex();
+  }
+
+  priceClick(e) {
+     
   }
 
   handleSubmit(e) {
@@ -132,9 +136,9 @@ class Header extends React.Component {
 
           <Link to="/reviews" >Write a Review</Link>
         </div>
-        <div>
-        </div>
+
     </div>
+
     </div>
     );
   }

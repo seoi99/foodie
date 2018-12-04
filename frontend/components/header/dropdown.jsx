@@ -7,19 +7,14 @@ class Dropdown extends React.Component {
   constructor(props) {
     super(props);
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.keyevent = this.keyevent.bind(this);
   }
 
-  
+
   handleButtonClick(e) {
     e.preventDefault();
     this.props.getSelectedBusinesses(this.props.businesses,e.target.innerText);
   }
-  keyevent(e) {
-    if (this.state.bkey) {
-      console.log("hitting man");
-    }
-  }
+
 
   render() {
     const businesses = this.props.businesses;
