@@ -14,12 +14,15 @@
 #  updated_at    :datetime         not null
 #  price         :integer
 
+
+
+
 class Business < ApplicationRecord
+
   validates :business_name, :full_address, :latitude, :longitude, :category, :price, presence: true
   has_many :hours
   has_many :images
   has_many :reviews
-
 
   def average_rating
     reviews.average(:rating)

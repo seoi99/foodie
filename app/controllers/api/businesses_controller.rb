@@ -1,8 +1,8 @@
 class Api::BusinessesController < ApplicationController
 
   def index
-    sleep 0.5
     @businesses = Business.all
+    @YelpApiBusiness = YelpApiBusiness.first.yelp_businesses
   end
 
   def show
@@ -10,7 +10,8 @@ class Api::BusinessesController < ApplicationController
   end
 
   def search
-    @businesses = Business.where(' name ILIKE ?')
+    @businesses = Business.where("business_name ILIKE ? ", "%#{params[:result]}%")
+    render :index
   end
 
   private

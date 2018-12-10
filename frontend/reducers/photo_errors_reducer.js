@@ -7,6 +7,7 @@ export default (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case PHOTO_ERROR:
+    
       return action.errors;
     case RECEIVE_PHOTO:
       return [];

@@ -1,10 +1,9 @@
 
 export const fetchAllBusinesses = () => {
-
   return $.ajax({
     method: 'GET',
     url: '/api/businesses',
-    
+
   })
 }
 
@@ -44,5 +43,13 @@ export const fetchAllReviews = () => {
   return $.ajax({
     method: "GET",
     url: '/api/reviews'
+  })
+}
+
+export const fetchSearchResult = (query) => {
+  
+  return $.ajax({
+    method: "GET",
+    url: `api/businesses/search/?result=${query}`
   })
 }

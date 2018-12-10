@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
-import {getSelectedBusinesses} from '../../actions/business_actions'
+import {getSearchResult} from '../../actions/business_actions'
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -11,8 +11,9 @@ class Dropdown extends React.Component {
 
 
   handleButtonClick(e) {
+    debugger
     e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses,e.target.innerText);
+    this.props.getSearchResult(e.target.innerText);
   }
 
 
@@ -20,20 +21,19 @@ class Dropdown extends React.Component {
     const businesses = this.props.businesses;
     const bizCat = ["Japanese", "Korean", "Delivery","Fast Food", "Salad"]
     let bizArr = Object.values(businesses).map((biz, idx) => {
-      if (this.props.searchtxt !== "") {
-        if (biz.business_name.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
-          return (
-            <div key={idx} className="biz-dropdown" onKeyDown={this.keyevent}>
-              <li><Link to={`/businesses/${biz.id}`}>{biz.business_name}</Link></li>
-            </div>
-          )
-        }
-      }
-  })
+          if (this.props.searchtxt !== "") {
+            if (biz.business_name.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
+              return (
+                <div key={idx} className="biz-dropdown">
+                  <li><Link to={`/businesses/${biz.id}`}>{biz.business_name}</Link></li>
+                </div>
+              )
+            }
+          }
+      })
 
   if (this.props.searchtxt === "") {
     bizArr = bizCat.map((biz, idx) => {
-
       return  (
         <div key={idx} className="biz-dropdown">
           <li onClick={this.handleButtonClick}><Link to="/businesses">{biz}</Link></li>
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getSelectedBusinesses: (data, searchtxt) => dispatch(getSelectedBusinesses(data, searchtxt)),
+    getSearchResult: (searchtxt) => dispatch(getSearchResult(searchtxt)),
   }
 }
 

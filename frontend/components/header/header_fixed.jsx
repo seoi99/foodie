@@ -42,12 +42,12 @@ class Header extends React.Component {
   }
 
   priceClick(e) {
-     
+
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses, this.state.searchtxt)
+    this.props.getSearchResult(this.state.searchtxt)
     this.setState({dropdown: "hidden"});
     this.navigateToIndex();
   }
@@ -110,7 +110,7 @@ class Header extends React.Component {
                    />
 
                  <div className={this.state.dropdown}>
-                  <Dropdown bkey={this.state.bkey} searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
+                  <Dropdown bkey={this.state.bkey} searchtxt={this.state.searchtxt} businesses={this.props.businesses} />
                 </div>
               </label>
               <label>

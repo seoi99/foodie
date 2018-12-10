@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as SessionApiUtil from './util/session_api_util';
-import{fetchAllBusinesses} from './util/business_api_util';
+import{fetchAllBusinesses, fetchSearchResult} from './util/business_api_util';
 import{updateFilter} from './actions/filter_actions';
 import{createReview, requestAllBusinesses} from './actions/business_actions';
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   ReactDOM.render(<Root store={store}/>, root);
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchAllBusinesses = fetchAllBusinesses;
+  window.fetchSearchResult = fetchSearchResult;
   window.createReview = createReview;
   window.updateFilter = updateFilter;
   window.requestAllBusinesses = requestAllBusinesses;

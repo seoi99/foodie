@@ -18,6 +18,7 @@ const photoReducer = (state = {}, action) => {
       return deleteState;
     case RECEIVE_ALL_PHOTOS:
       return action.photos
+
     default:
       return state;
   }

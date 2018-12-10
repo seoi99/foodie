@@ -5,6 +5,7 @@ import {getSelectedBusinesses, requestAllReviews, requestAllBusinesses} from '..
 import { requestPhoto} from '../../actions/user_pic_action';
 
 const mapStateToProps = state => {
+  
   return {
     currentUser: state.entities.users[state.session.currentUserId],
     reviews: state.entities.reviews,
@@ -21,7 +22,7 @@ const mapDispatchToProps = dispatch => {
     },
     getSelectedBusinesses: (data, searchtxt) => dispatch(getSelectedBusinesses(data, searchtxt)),
     requestAllReviews: () => dispatch(requestAllReviews()),
-    requestAllBusinesses: (data) => dispatch(requestAllBusinesses(data)),
+    requestAllBusinesses: (data) => dispatch(requestAllBusinesses()),
     requestPhoto: (id) => dispatch(requestPhoto(id)),
   };
 };
