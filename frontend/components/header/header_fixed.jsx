@@ -30,25 +30,24 @@ class Header extends React.Component {
 
   handleChange(e) {
     this.setState({searchtxt: e.currentTarget.value});
+    this.setState({dropdown:"show"});
   }
 
   navigateToIndex() {
     this.props.history.push(`/businesses`)
   }
+
   handleButtonClick(e) {
     e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses, e.target.value)
+    this.props.getSearchResult(e.target.value)
     this.navigateToIndex();
   }
 
-  priceClick(e) {
-
-  }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.getSearchResult(this.state.searchtxt)
     this.setState({dropdown: "hidden"});
+    this.props.loadBusinesses();
     this.navigateToIndex();
   }
 
@@ -106,11 +105,10 @@ class Header extends React.Component {
                 <p>Find</p>
                 <input type="text" placeholder="korean, japanese, salad ..."
                   onChange={this.handleChange} value={this.state.searchtxt}
-                  onClick={this.clicked} onKeyDown={this.keydown}
+                  onClick={this.clicked}
                    />
-
                  <div className={this.state.dropdown}>
-                  <Dropdown bkey={this.state.bkey} searchtxt={this.state.searchtxt} businesses={this.props.businesses} />
+                  <Dropdown searchtxt={this.state.searchtxt} businesses={this.props.businesses} />
                 </div>
               </label>
               <label>

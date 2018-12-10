@@ -6,37 +6,39 @@ import {getSearchResult} from '../../actions/business_actions'
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.state = {
+      len: 0
+    }
   }
-
-
-  handleButtonClick(e) {
-    debugger
-    e.preventDefault();
-    this.props.getSearchResult(e.target.innerText);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.searchtxt.length !== this.state.len) {
+      this.setState({len: this.props.searchtxt.length});
+      this.props.getSearchResult(this.props.searchtxt);
+    }
   }
-
 
   render() {
     const businesses = this.props.businesses;
     const bizCat = ["Japanese", "Korean", "Delivery","Fast Food", "Salad"]
-    let bizArr = Object.values(businesses).map((biz, idx) => {
-          if (this.props.searchtxt !== "") {
-            if (biz.business_name.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
-              return (
-                <div key={idx} className="biz-dropdown">
-                  <li><Link to={`/businesses/${biz.id}`}>{biz.business_name}</Link></li>
-                </div>
-              )
-            }
+      let bizArr;
+      if (this.props.searchtxt !== "") {
+         bizArr = Object.values(businesses).map((biz, idx) => {
+           if (biz.business_name.toLowerCase().includes(this.props.searchtxt.toLowerCase())) {
+            return (
+              <div key={idx} className="biz-dropdown">
+                <li><Link to={`/businesses/${biz.id}`}>{biz.business_name}</Link></li>
+              </div>
+            )
           }
-      })
+        })
+      }
 
-  if (this.props.searchtxt === "") {
+  else if (this.props.searchtxt === "") {
+
     bizArr = bizCat.map((biz, idx) => {
       return  (
         <div key={idx} className="biz-dropdown">
-          <li onClick={this.handleButtonClick}><Link to="/businesses">{biz}</Link></li>
+          <li><Link to="/businesses">{biz}</Link></li>
         </div>
       )
     })

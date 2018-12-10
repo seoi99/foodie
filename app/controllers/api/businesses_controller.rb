@@ -10,7 +10,11 @@ class Api::BusinessesController < ApplicationController
   end
 
   def search
-    @businesses = Business.where("business_name ILIKE ? ", "%#{params[:result]}%")
+    if params[:result] != "undefined"
+      @businesses = Business.where("business_name ILIKE ? ", "%#{params[:result]}%")
+    else
+      @businesses = Business.all
+    end
     render :index
   end
 
