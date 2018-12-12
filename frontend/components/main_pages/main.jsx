@@ -18,7 +18,7 @@ class MainPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllBusinesses();
+    this.props.getSearchResult();
     this.props.requestAllReviews();
   }
 

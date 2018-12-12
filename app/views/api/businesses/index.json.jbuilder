@@ -14,7 +14,3 @@ json.businesses do
     end
   end
 end
-
-json.yelpBusiness do
-    json.array! @YelpApiBusiness
-end

@@ -5,7 +5,8 @@ import { requestAllBusinesses , loadBusinesses, loadNoBusinesses} from '../../ac
 const mapStateToProps = (state) => {
   return {
   businesses: Object.values(state.entities.businesses),
-  loading: state.ui.businesses.loading
+  loading: state.ui.businesses.loading,
+  search: state.entities.search
 }}
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const BusinessIndexItem = ({business, num}) => {
-  
+const BusinessIndexItem = ({business, review, num}) => {
+
   const images = business.images.map((image, idx) => {
     return (
       <li key={image.id}> <img src={image.img_url} alt={business.business_name} /></li>
@@ -22,15 +22,7 @@ const BusinessIndexItem = ({business, num}) => {
       } else {
         return symb;}
   }}
-  let body = business.reviews.length > 0 ? business.reviews[0].body : "";
-  if (body.length > 100) {
-    for (var i = 100; i < body.length; i++) {
-      if (body[i] === " ") {
-        break
-      }
-    }
-    body = `${body.slice(0,i)} ...`
-  }
+
   return(
     <li className="index-li">
       <ul className="img-list">
@@ -55,7 +47,6 @@ const BusinessIndexItem = ({business, num}) => {
           </div>
         </div>
         <p>
-          {body}
         </p>
       </div>
     </li>

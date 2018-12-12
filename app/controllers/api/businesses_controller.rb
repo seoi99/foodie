@@ -2,7 +2,6 @@ class Api::BusinessesController < ApplicationController
 
   def index
     @businesses = Business.all
-    @YelpApiBusiness = YelpApiBusiness.first.yelp_businesses
   end
 
   def show
@@ -11,9 +10,9 @@ class Api::BusinessesController < ApplicationController
 
   def search
     if params[:result] != "undefined"
-      @businesses = Business.where("business_name ILIKE :result OR category ILIKE :result ", result: "%#{params[:result]}%")
+      @businesses = Business.where("business_name ILIKE :result OR category ILIKE :result ", result: "%#{params[:result]}%").limit(20)
     else
-      @businesses = Business.all
+      @businesses = Business.all.limit(20)
     end
     render :index
   end

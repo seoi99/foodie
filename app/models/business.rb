@@ -15,8 +15,6 @@
 #  price         :integer
 
 
-
-
 class Business < ApplicationRecord
 
   validates :business_name, :full_address, :latitude, :longitude, :category, :price, presence: true

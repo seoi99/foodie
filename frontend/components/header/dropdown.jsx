@@ -10,6 +10,7 @@ class Dropdown extends React.Component {
       searchStr: ""
     }
     this.handleButtonClick = this.handleButtonClick.bind(this)
+    
   }
 
   componentWillReceiveProps(nextProps) {

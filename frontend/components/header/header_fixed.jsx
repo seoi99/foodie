@@ -23,6 +23,7 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       this.props.requestPhoto(this.props.currentUser.id)
       }
+
   }
 
   toggleClass() {
@@ -42,6 +43,8 @@ class Header extends React.Component {
   handleButtonClick(e) {
     e.preventDefault();
     this.props.getSearchResult(e.target.value)
+    this.props.loadBusinesses();
+    this.navigateToIndex();
   }
 
 
@@ -51,6 +54,7 @@ class Header extends React.Component {
     this.props.getSearchResult(this.state.searchtxt)
     this.props.loadBusinesses();
     this.navigateToIndex();
+
   }
 
   clicked(e) {

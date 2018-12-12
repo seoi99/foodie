@@ -8,18 +8,11 @@ import Footer  from '../footer/footer';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      businesses: [],
-    }
   }
-  render() {
-    if (this.props.loading) {
-      this.setState({businesses: this.props.businesses});
-      this.props.loadNoBusinesses();
-    }
 
+  render() {
     let businesses = this.props.businesses.map((business, idx) => {
-      return <BusinessIndexItem business={business} key={idx} num={idx}/>;
+      return <BusinessIndexItem business={business} key={idx} num={idx}/>
     });
 
       return(
@@ -35,7 +28,7 @@ class BusinessIndex extends React.Component {
             {businesses}
           </ul>
           <div className="all-map">
-            <GoogleMap requestAllBusiness={this.props.requestAllBusinesses} businesses={this.state.businesses} singleBusiness={false}/>
+            <GoogleMap requestAllBusiness={this.props.requestAllBusinesses} businesses={this.props.businesses} singleBusiness={false}/>
           </div>
         </div>
         <Footer/>

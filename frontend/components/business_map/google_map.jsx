@@ -14,7 +14,7 @@ const getCoordsObj = (latLng) => {
 const latlng = new google.maps.LatLng(40.754614, -73.987898);
 const mapOptions = {
   center: latlng,
-  zoom: 14
+  zoom: 11
 };
 
 
