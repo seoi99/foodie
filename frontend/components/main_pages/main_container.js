@@ -5,7 +5,7 @@ import {getSelectedBusinesses, requestAllReviews, requestAllBusinesses} from '..
 import { requestPhoto} from '../../actions/user_pic_action';
 
 const mapStateToProps = state => {
-  
+
   return {
     currentUser: state.entities.users[state.session.currentUserId],
     reviews: state.entities.reviews,
@@ -13,6 +13,7 @@ const mapStateToProps = state => {
     businesses: state.entities.businesses,
     photo: state.entities.photos[state.session.currentUserId],
    };
+
 };
 
 const mapDispatchToProps = dispatch => {
@@ -20,10 +21,8 @@ const mapDispatchToProps = dispatch => {
     logout: () => {
       return dispatch(logout());
     },
-    getSelectedBusinesses: (data, searchtxt) => dispatch(getSelectedBusinesses(data, searchtxt)),
     requestAllReviews: () => dispatch(requestAllReviews()),
     requestAllBusinesses: (data) => dispatch(requestAllBusinesses()),
-    requestPhoto: (id) => dispatch(requestPhoto(id)),
   };
 };
 

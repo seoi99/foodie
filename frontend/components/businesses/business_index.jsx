@@ -13,13 +13,12 @@ class BusinessIndex extends React.Component {
     }
   }
   render() {
-
     if (this.props.loading) {
       this.setState({businesses: this.props.businesses});
       this.props.loadNoBusinesses();
     }
 
-    let businesses = this.state.businesses.map((business, idx) => {
+    let businesses = this.props.businesses.map((business, idx) => {
       return <BusinessIndexItem business={business} key={idx} num={idx}/>;
     });
 

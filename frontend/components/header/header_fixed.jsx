@@ -5,7 +5,7 @@ import {Link, withRouter} from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {active: false, searchtxt: "", dropdown: "hidden", bkey: false};
+    this.state = {active: false, searchtxt: "", dropdown: "hidden", bkey: false, len: 0};
     this.toggleClass = this.toggleClass.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -20,7 +20,9 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.currentUser) {
       this.props.requestPhoto(this.props.currentUser.id)
+      }
   }
 
   toggleClass() {
@@ -40,13 +42,13 @@ class Header extends React.Component {
   handleButtonClick(e) {
     e.preventDefault();
     this.props.getSearchResult(e.target.value)
-    this.navigateToIndex();
   }
 
 
   handleSubmit(e) {
     e.preventDefault();
     this.setState({dropdown: "hidden"});
+    this.props.getSearchResult(this.state.searchtxt)
     this.props.loadBusinesses();
     this.navigateToIndex();
   }
@@ -57,6 +59,9 @@ class Header extends React.Component {
 
 
   render() {
+    let h7 = this.props.h1 || "signup-links"
+    let h8 = this.props.h1 || "linktopage"
+
     let toggle = "hide-dropdowns";
     if (this.state.active === true) {
       toggle = "dropdowns";
@@ -66,7 +71,7 @@ class Header extends React.Component {
     let signup;
       if (this.props.currentUser) {
         signup = (
-          <div className="signup-links">
+          <div className={h7}>
                 {mainImg}
               <div className={toggle} onClick={this.toggleClass}>
                 <ul className="lists">
@@ -86,22 +91,34 @@ class Header extends React.Component {
             )
       } else {
         signup = (
-          <div className="linktopage">
+          <div className={h8}>
             <Link to="/businesses/login">Log In</Link>
             <Link to="/businesses/signup">Sign Up</Link>
           </div>
         )
       }
+    let c1 = this.props.c1 || "input-box"
+    let c2 = this.props.h1 || ""
+    let c3 = this.props.c3 || ""
+    let c4 = this.props.c4 || "cat"
+    let h1 = this.props.h1 || ""
+    let h2 = this.props.h2 || "header-all"
+    let h3 = this.props.h2 || "headerfix"
+    let h4 = this.props.h2 || "lab-flex"
+    let h5 = this.props.h2 || "bg"
+    let h6 = this.props.h2 || "cat-review"
+
 
   return(
     <div>
-      <div className="header-all">
+      <div className={h2}>
 
-        <Link to="/">Foodie</Link>
+        <Link to="/" className={h1}>Foodie</Link>
 
-          <div className="input-box">
-            <form className="headerfix" onSubmit={this.handleSubmit}>
-              <label className="lab-flex">
+          <div className={c1}>
+            <div className={c3}>
+            <form className={h3} onSubmit={this.handleSubmit}>
+              <label className={h4}>
                 <p>Find</p>
                 <input type="text" placeholder="korean, japanese, salad ..."
                   onChange={this.handleChange} value={this.state.searchtxt}
@@ -119,20 +136,23 @@ class Header extends React.Component {
             </form>
 
           </div>
+          </div>
+
           {signup}
+
       </div>
 
-      <div className="bg">
-        <div className="cat-review">
-          <ul className="cat">
-            <input type="button" value="Delivery" onClick={this.handleButtonClick}/>
-            <input type="button" value="Salad" onClick={this.handleButtonClick} />
-            <input type="button" value="Fast Food" onClick={this.handleButtonClick} />
-            <input type="button" value="Japanese" onClick={this.handleButtonClick} />
-            <input type="button" value="Korean" onClick={this.handleButtonClick} />
+      <div className={h5}>
+        <div className={h6}>
+          <ul className={c4}>
+            <i className="fa fa-spoon"></i><input type="button" value="Delivery" onClick={this.handleButtonClick}/>
+            <i className="fa fa-spoon"></i><input type="button" value="Salad" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Fast Food" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Japanese" onClick={this.handleButtonClick} />
+            <i className="fa fa-spoon"></i><input type="button" value="Korean" onClick={this.handleButtonClick} />
           </ul>
 
-          <Link to="/reviews" >Write a Review</Link>
+          <Link to="/reviews" className={c2}>Write a Review</Link>
         </div>
 
     </div>

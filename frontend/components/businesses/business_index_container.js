@@ -8,10 +8,12 @@ const mapStateToProps = (state) => {
   loading: state.ui.businesses.loading
 }}
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => {
+  return {
   requestAllBusinesses: (businesses) => dispatch(requestAllBusinesses(businesses)),
   loadBusinesses: () => dispatch(loadBusinesses()),
   loadNoBusinesses: () => dispatch(loadNoBusinesses()),
-})
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(BusinessIndex);

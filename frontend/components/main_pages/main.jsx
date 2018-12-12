@@ -4,68 +4,39 @@ import Footer  from '../footer/footer';
 import ReviewIndex  from './review_index';
 import BusinessMainIndexItem  from './business_main_index';
 import Dropdown from '../header/dropdown';
+import HeaderContainer from '../header/header_fixed_container';
+
 
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {active: false, searchtxt:"", dropdown: "hidden"};
-    this.handleClick = this.handleClick.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.state = {active: false, dropdown: "hidden", businesses: {}};
     this.toggleClass= this.toggleClass.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.navigateToIndex = this.navigateToIndex.bind(this);
-    this.clicked = this.clicked.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
-  }
-
-  handleClick(e) {
-    return this.props.logout();
-  }
-
-  toggleClass() {
-      const currentState = this.state.active;
-      this.setState({ active: !currentState });
-  }
-  navigateToIndex() {
-    this.props.history.push("/businesses")
-  }
-  handleChange(e) {
-    this.setState({searchtxt: e.currentTarget.value})
-    this.props.requestAllBusinesses();
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses, this.state.searchtxt)
-    this.setState({dropdown: "hidden"});
-    this.navigateToIndex();
-  }
-
-  clicked() {
-    this.setState({dropdown:"show"})
-  }
-
-  handleButtonClick(e) {
-    e.preventDefault();
-    this.props.getSelectedBusinesses(this.props.businesses, e.currentTarget.value)
-    this.navigateToIndex();
   }
 
   componentDidMount() {
-    this.props.requestAllReviews();
     this.props.requestAllBusinesses();
-    if (this.props.currentUserId) {
-      this.props.requestPhoto(this.props.currentUser.id)
-    }
+    this.props.requestAllReviews();
   }
+
+  handleClick(e) {
+  return this.props.logout();
+}
+
+toggleClass() {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+}
 
   render () {
     let toggle = "hide-dropdown";
     if (this.state.active === true) {
       toggle = "dropdown";
     }
+
     let signinform;
     let img = this.props.photo ? <img className="profile-icon" src={this.props.photo.photoUrl}/> : <img className="profile-icon" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png"/>
     let mainImg = this.props.photo ? <img className="user-icon" src={this.props.photo.photoUrl} onClick={this.toggleClass}/> : <img className="user-icon" src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/bf5ff8a79310/assets/img/default_avatars/user_medium_square.png" onClick={this.toggleClass}/>
@@ -98,10 +69,11 @@ class MainPage extends React.Component {
       )
     }
 
+
     let reviews;
-    const currentUserId = this.props.currentUserId
+    let currentUserId = this.props.currentUserId;
     if (Object.keys(this.props.reviews).length > 0) {
-      reviews = Object.values(this.props.reviews, currentUserId).map((review, idx) => {
+      reviews = Object.values(this.props.reviews).map((review, idx) => {
     return <ReviewIndex review={review} key={idx} currentUserId={currentUserId}/>
     }).reverse().filter((val, idx) => idx < 12)}
 
@@ -113,7 +85,7 @@ class MainPage extends React.Component {
 
       return(
       <div>
-      <div className="main-image" >
+        <div className="main-image" >
         <nav>
           <div className="nav-links">
             <Link to='/reviews'>Write a Review</Link>
@@ -123,29 +95,9 @@ class MainPage extends React.Component {
         <div className="main-logo">
           <Link to="/"><h1>Foodie</h1></Link>
         </div>
-        <div className="input-main">
-          <div className="input-box">
-            <form onSubmit={this.handleSubmit}>
-            <label><p>Find</p>
-              <input type="text" placeholder="korean, japanese, salad..." onChange={this.handleChange} value={this.state.searchtxt} onClick={this.clicked}/>
-              <div className={this.state.dropdown}>
-                <Dropdown searchtxt={this.state.searchtxt} updateSearchtxt={this.handleChange} />
-              </div>
-            </label>
-            <label><p>Near</p>
-              <input type="text" placeholder="location..."/>
-            </label>
-            <button type="submit" value="" className="magify"/>
-            </form>
-          </div>
-        </div>
-        <ul className="goto-cat">
-            <i className="fa fa-spoon"></i><input type="button" value="Delivery" onClick={this.handleButtonClick} />
-            <i className="fa fa-spoon"></i><input type="button" value="Salad" onClick={this.handleButtonClick} />
-            <i className="fa fa-spoon"></i><input type="button" value="Fast Food" onClick={this.handleButtonClick} />
-            <i className="fa fa-spoon"></i><input type="button" value="Japanese" onClick={this.handleButtonClick} />
-            <i className="fa fa-spoon"></i><input type="button" value="Korean" onClick={this.handleButtonClick} />
-        </ul>
+
+        <HeaderContainer c1="input-main" c2="nav-links" c3="input-box" c4="goto-cat" b1="main-image" h1="hide-el" h2="none"/>
+
       </div>
       <div className="main-business">
         <h1>Hot & New Businesses </h1>
@@ -161,6 +113,7 @@ class MainPage extends React.Component {
       </div>
         <Footer />
       </div>
+
       );
     }
   }

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user, :logged_in?, :require_logged_in, :user_photo
+  helper_method :current_user, :logged_in?, :require_logged_in, :user_photo, :not_required
 
     private
 
@@ -34,5 +34,6 @@ class ApplicationController < ActionController::Base
         render json: { base: ['invalid credentials'] }, status: 401
       end
     end
+
 
 end

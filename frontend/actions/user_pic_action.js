@@ -35,7 +35,7 @@ export const removePhoto = (photo) => {
 };
 
 export const photoError = (errors) => {
-  
+
   return {
   type: PHOTO_ERROR,
   errors: errors.errors
@@ -45,10 +45,9 @@ export const photoError = (errors) => {
 
 export const requestPhoto = (id) => (dispatch) => {
   dispatch(imageLoading());
-
   PhotoUtil.fetchPicture(id).then(
     (photo) => dispatch(receivePhoto(photo)),
-    (errors) => dispatch(photoError(errors))
+    (errors) => dispatch(photoError({errors: "Photo Not Found"}))
   )
 }
 

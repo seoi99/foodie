@@ -10,6 +10,7 @@ export const RECEIVE_REVIEW_ERROR = 'RECEIVE_REVIEW_ERROR';
 export const START_LOADING_REVIEW_INDEX = 'START_LOADING_REVIEW_INDEX';
 export const LOAD_BUSINESSES = 'LOAD_BUSINESSES';
 export const LOAD_NO_BUSINSSES = 'LOAD_NO_BUSINSSES';
+export const DROP_DOWN_RESULT = 'DROP_DOWN_RESULT';
 
 export const loadBusinesses = () => {
   return {
@@ -41,12 +42,24 @@ export const receiveSearchResult = (result) => {
   result
   }
 }
-
 export const getSearchResult = (query) => {
-
   return (dispatch) => {
     BusinessApiUtil.fetchSearchResult(query).then((businesses) => {
       dispatch(receiveSearchResult(businesses))
+    })
+  }
+}
+
+export const dropdownResult = (result) => {
+  return {
+  type: DROP_DOWN_RESULT,
+  result
+  }
+}
+export const getDropdownResult = (query) => {
+  return (dispatch) => {
+    BusinessApiUtil.fetchSearchResult(query).then((businesses) => {
+      dispatch(dropdownResult(businesses))
     })
   }
 }
@@ -84,6 +97,7 @@ export const receiveReview = ({ review, average_rating, user }) => {
 }};
 
 export const receivewAllReviews = (reviews) => {
+
   return {
   type: RECEIVE_ALL_REVIEW,
   reviews
@@ -105,7 +119,6 @@ export const requestAllReviews = () => dispatch => {
 
 
 export const removeReview = ({review}) => {
-
   return {
   type: REMOVE_REVIEW,
   deletereview: review
