@@ -21,6 +21,7 @@ export const deletePicture = (id) => {
 }
 
 export const uploadPicture = (formData) => {
+  debugger
   return $.ajax({
     method: 'POST',
     url: '/api/user_pictures',

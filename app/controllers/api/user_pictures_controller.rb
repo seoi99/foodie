@@ -4,7 +4,6 @@ class Api::UserPicturesController < ApplicationController
 
   def show
     @userPicture = UserPicture.find_by(user_id: params[:id])
-
     if @userPicture
       render 'api/user_pictures/show'
     else
@@ -18,6 +17,7 @@ class Api::UserPicturesController < ApplicationController
 
   def create
     @userPicture = UserPicture.new(post_params)
+    debugger
     unless UserPicture.where(user_id: current_user.id).empty?
       UserPicture.where(user_id: current_user.id).destroy_all
     end

@@ -23,7 +23,6 @@ class User < ApplicationRecord
   validates :zipcode, length: {minimum: 5, maximum: 5, allow_nil: true}
 
   has_many :reviews
-  has_one :user_picture
 
 
   after_initialize :ensure_session_token
