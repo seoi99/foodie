@@ -12,7 +12,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
   let store;
   if (window.currentUser) {
   const preloadedState = {
+<<<<<<< HEAD
     entities: { 
+=======
+    entities: {
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       users: { [window.currentUser.id]: window.currentUser },
       photos: { [window.currentUser.id]: window.user_photo }
     },

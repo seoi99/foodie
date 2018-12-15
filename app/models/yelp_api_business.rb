@@ -10,6 +10,10 @@
 
 class YelpApiBusiness < ApplicationRecord
   validates :yelp_businesses, presence: true
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
   API_HOST = "https://api.yelp.com"
   SEARCH_PATH = "/v3/businesses/search"
   BUSINESS_PATH = "/v3/businesses/"
@@ -30,6 +34,10 @@ class YelpApiBusiness < ApplicationRecord
       location: location,
       limit: SEARCH_LIMIT
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
     response = HTTP.auth("Bearer #{API_KEY}").get(url, params: params)
     self.yelp_businesses = response.parse["businesses"]
     self.yelp_businesses.each do |biz|

@@ -43,7 +43,11 @@ class Header extends React.Component {
   handleButtonClick(e) {
     e.preventDefault();
     this.props.getSearchResult(e.target.value)
+<<<<<<< HEAD
     this.props.loadBusinesses()
+=======
+    this.props.loadBusinesses();
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
     this.navigateToIndex();
   }
 

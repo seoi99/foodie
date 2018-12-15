@@ -4,7 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+<<<<<<< HEAD
 gem 'rails', '~> 5.2.2'
+=======
+gem 'rails', '~> 5.2.1'
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -42,7 +46,15 @@ gem "aws-sdk-s3", require: false
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+<<<<<<< HEAD
   # Call 'byebug' anywhere in the code to stop execution and get a  console
+=======
+<<<<<<< HEAD
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+=======
+  # Call 'byebug' anywhere in the code to stop execution and get a  console
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
+>>>>>>> cc03632b54d202dc8668b231875ca08e15bba208
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -65,5 +77,11 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+<<<<<<< HEAD
+=======
+group :production do
+  gem 'rails_12factor'
+end
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

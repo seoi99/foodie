@@ -29,7 +29,10 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
