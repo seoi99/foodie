@@ -4,8 +4,14 @@
     <title>Foodie</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+<<<<<<< HEAD
 
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_api}" %>
+=======
+    <%= favicon_link_tag asset_path('food.png'), :rel => 'icon', :type => 'image/png' %>
+
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDG4VIed7rHyifHx_B6ZkbSQZJh4qPkPws" %>
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
     <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto|Concert+One" rel="stylesheet">
     <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"%>
     <%= stylesheet_link_tag 'application', media: 'all' %>

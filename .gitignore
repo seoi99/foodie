@@ -25,3 +25,17 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+<<<<<<< HEAD
+=======
+
+  
+node_modules/
+bundle.js
+bundle.js.map
+.byebug_history
+.DS_Store
+npm-debug.log
+
+# Ignore application configuration
+/config/application.yml
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df

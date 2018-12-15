@@ -33,8 +33,13 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+<<<<<<< HEAD
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
+=======
+  # Tell Action Mailer not to deliver usernames to the real world.
+  # The :test delivery method accumulates sent usernames in the
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 

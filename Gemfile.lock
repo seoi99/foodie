@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+<<<<<<< HEAD
     actioncable (5.2.2)
       actionpack (= 5.2.2)
       nio4r (~> 2.0)
@@ -14,16 +15,37 @@ GEM
     actionpack (5.2.2)
       actionview (= 5.2.2)
       activesupport (= 5.2.2)
+=======
+    actioncable (5.2.1)
+      actionpack (= 5.2.1)
+      nio4r (~> 2.0)
+      websocket-driver (>= 0.6.1)
+    actionmailer (5.2.1)
+      actionpack (= 5.2.1)
+      actionview (= 5.2.1)
+      activejob (= 5.2.1)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 2.0)
+    actionpack (5.2.1)
+      actionview (= 5.2.1)
+      activesupport (= 5.2.1)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       rack (~> 2.0)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+<<<<<<< HEAD
     actionview (5.2.2)
       activesupport (= 5.2.2)
+=======
+    actionview (5.2.1)
+      activesupport (= 5.2.1)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+<<<<<<< HEAD
     activejob (5.2.2)
       activesupport (= 5.2.2)
       globalid (>= 0.3.6)
@@ -38,6 +60,22 @@ GEM
       activerecord (= 5.2.2)
       marcel (~> 0.3.1)
     activesupport (5.2.2)
+=======
+    activejob (5.2.1)
+      activesupport (= 5.2.1)
+      globalid (>= 0.3.6)
+    activemodel (5.2.1)
+      activesupport (= 5.2.1)
+    activerecord (5.2.1)
+      activemodel (= 5.2.1)
+      activesupport (= 5.2.1)
+      arel (>= 9.0)
+    activestorage (5.2.1)
+      actionpack (= 5.2.1)
+      activerecord (= 5.2.1)
+      marcel (~> 0.3.1)
+    activesupport (5.2.1)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -51,17 +89,30 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     aws-eventstream (1.0.1)
+<<<<<<< HEAD
     aws-partitions (1.124.0)
     aws-sdk-core (3.44.0)
+=======
+    aws-partitions (1.112.0)
+    aws-sdk-core (3.38.0)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
+<<<<<<< HEAD
     aws-sdk-kms (1.13.0)
       aws-sdk-core (~> 3, >= 3.39.0)
       aws-sigv4 (~> 1.0)
     aws-sdk-s3 (1.30.0)
       aws-sdk-core (~> 3, >= 3.39.0)
+=======
+    aws-sdk-kms (1.11.0)
+      aws-sdk-core (~> 3, >= 3.26.0)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.23.1)
+      aws-sdk-core (~> 3, >= 3.26.0)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.3)
@@ -77,7 +128,11 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
+<<<<<<< HEAD
     capybara (3.12.0)
+=======
+    capybara (3.11.0)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -110,6 +165,7 @@ GEM
       thor (~> 0.14)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+<<<<<<< HEAD
     http (4.0.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -120,6 +176,18 @@ GEM
     http-form_data (2.1.1)
     http_parser.rb (0.6.0)
     i18n (1.2.0)
+=======
+    http (2.1.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
+    i18n (1.1.1)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jbuilder (2.8.0)
@@ -160,13 +228,18 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+<<<<<<< HEAD
     pry-rails (0.3.8)
+=======
+    pry-rails (0.3.7)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+<<<<<<< HEAD
     rails (5.2.2)
       actioncable (= 5.2.2)
       actionmailer (= 5.2.2)
@@ -179,12 +252,27 @@ GEM
       activesupport (= 5.2.2)
       bundler (>= 1.3.0)
       railties (= 5.2.2)
+=======
+    rails (5.2.1)
+      actioncable (= 5.2.1)
+      actionmailer (= 5.2.1)
+      actionpack (= 5.2.1)
+      actionview (= 5.2.1)
+      activejob (= 5.2.1)
+      activemodel (= 5.2.1)
+      activerecord (= 5.2.1)
+      activestorage (= 5.2.1)
+      activesupport (= 5.2.1)
+      bundler (>= 1.3.0)
+      railties (= 5.2.1)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+<<<<<<< HEAD
     railties (5.2.2)
       actionpack (= 5.2.2)
       activesupport (= 5.2.2)
@@ -192,6 +280,20 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (12.3.2)
+=======
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
+    railties (5.2.1)
+      actionpack (= 5.2.1)
+      activesupport (= 5.2.1)
+      method_source
+      rake (>= 0.8.7)
+      thor (>= 0.19.0, < 2.0)
+    rake (12.3.1)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -230,10 +332,17 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.20.3)
     thread_safe (0.3.6)
+<<<<<<< HEAD
     tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
+=======
+    tilt (2.0.8)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+    uglifier (4.1.19)
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -275,7 +384,12 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry-rails
   puma (~> 3.11)
+<<<<<<< HEAD
   rails (~> 5.2.2)
+=======
+  rails (~> 5.2.1)
+  rails_12factor
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

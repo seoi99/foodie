@@ -28,7 +28,10 @@ export const receiveAllPhotos = (photos) => {
 };
 
 export const removePhoto = (photo) => {
+<<<<<<< HEAD
   debugger
+=======
+>>>>>>> ffc86eff251a60724b78e84e4a788c0d044846df
   return {
   type: REMOVE_PHOTO,
   photo: photo.message
